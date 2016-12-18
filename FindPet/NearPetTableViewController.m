@@ -1,4 +1,4 @@
-//
+     //
 //  NearPetTableViewController.m
 //  FindPet
 //
@@ -42,6 +42,8 @@
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,5 +155,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

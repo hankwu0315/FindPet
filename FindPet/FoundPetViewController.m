@@ -10,11 +10,18 @@
 #import "SWRevealViewController.h"
 #import <AFNetworking.h>
 #import <AFURLRequestSerialization.h>
+#import "NearPetTableViewController.h"
 
-@interface FoundPetViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FoundPetViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate>
 {
     NSArray *sizeArray;
     NSString *sizeString;
+    
+    UIImage *uploadImage;
+    NSString *imageUrl;
+    
+    UIDatePicker *datePicker;
+    NSLocale *datelocale;
 
 }
 @property (weak, nonatomic) IBOutlet UIButton *Camera;
@@ -22,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *breedTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *sizePickerView;
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+@property (weak, nonatomic) IBOutlet UITextField *timeTextField;
 @property (weak, nonatomic) IBOutlet UITextView *appearTextView;
 @property (nonatomic) UIImage *image;
 @property(nonatomic) NSMutableArray *findPetData;
@@ -58,6 +66,33 @@
     self.breedTextField.placeholder = @"請輸入品種(ex.米克斯..)";
     self.locationTextField.placeholder = @"請輸入發現地址";
     
+    self.timeTextField.delegate = self;
+    // 建立 UIDatePicker
+    datePicker = [[UIDatePicker alloc]init];
+    // locale.timeZone不用設,預設就是看裝置的地區與時區
+//    datelocale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
+//    datePicker.locale = datelocale;
+//    datePicker.timeZone = [NSTimeZone timeZoneWithName:@"GMT+8"];
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    // 以下這行是重點 (螢光筆畫兩行) 將 UITextField 的 inputView 設定成 UIDatePicker
+    // 則原本會跳出鍵盤的地方 就改成選日期了
+    self.timeTextField.inputView = datePicker;
+    
+    //取得datePicker的值
+    [datePicker addTarget:self action:@selector(getTime) forControlEvents:UIControlEventValueChanged];
+    
+    
+    // 建立 UIToolbar
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    // 選取日期完成鈕 並給他一個 selector
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self
+                                                                          action:@selector(cancelPicker)];
+    // 把按鈕加進 UIToolbar
+    toolBar.items = [NSArray arrayWithObject:right];
+    // 以下這行也是重點 (螢光筆畫兩行)
+    // 原本應該是鍵盤上方附帶內容的區塊 改成一個 UIToolbar 並加上完成鈕
+    self.timeTextField.inputAccessoryView = toolBar;
+    
     
     // 創建appearTextView
     self.appearTextView.backgroundColor= [UIColor whiteColor];
@@ -65,6 +100,40 @@
     self.appearTextView.textColor = [UIColor grayColor];
     self.appearTextView.delegate = self;
     
+    /* 測試picker選取資料
+    NSDateFormatter *df = [NSDateFormatter new];
+    NSString *UpdateTimeString = [NSDateFormatter
+                                  dateFormatFromTemplate:@"yyyy-MM-dd hh:mm:ss"
+                                  options:0
+                                  locale:[NSLocale currentLocale]];
+    [df setDateFormat:UpdateTimeString];
+    NSString *Test_df = [NSString stringWithFormat:@"%@",[df stringFromDate:datePicker.date]];
+    NSLog(@"%@",Test_df);*/
+    
+}
+
+// 按下完成鈕後的 method
+-(void) cancelPicker {
+    // endEditing: 是結束編輯狀態的 method
+    if ([self.view endEditing:NO]) {
+        // 以下幾行是測試用 可以依照自己的需求增減屬性
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:datelocale];
+//        [formatter setDateFormat:dateFormat];
+//        [formatter setLocale:datelocale];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        // 將選取後的日期 填入 UITextField
+        self.timeTextField.text = [NSString stringWithFormat:@"%@",[formatter stringFromDate:datePicker.date]];
+        
+        
+//        [NSString stringWithFormat:@"%@",datePicker.date];
+//        [NSString stringWithFormat:@"%@",[formatter stringFromDate:datePicker.date]];
+    }
+}
+
+-(void) getTime{
+    NSLog(@"%@",datePicker.date);
 }
 
 #pragma mark - UITextViewDelegate
@@ -120,9 +189,19 @@
 
 
 - (IBAction)done:(id)sender {
-//    [self imageUpload:self.imageView.image];
-    [self insertData];
+//    [self imageUpload:uploadImage];
+//    [self insertData];
     
+    // 回到上一個ViewController
+//    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    /* 跳到下一個ViewController
+    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    NearPetTableViewController *controllerD = [storyboard instantiateViewControllerWithIdentifier:@"NearPetTableViewController"];
+    [self.navigationController pushViewController:controllerD animated:YES];
+     */
 }
 
 - (IBAction)Camera:(id)sender {
@@ -137,8 +216,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
  
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    uploadImage = image;
     self.imageView.image = image;
-    [self imageUpload:image];
+//    [self imageUpload:image];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -146,13 +226,21 @@
 //上傳圖片方法
 - (void) imageUpload:(UIImage *) image{
     
-    NSData *imageData = UIImageJPEGRepresentation(image, .9);
+    NSData *imageData = UIImageJPEGRepresentation(image, .5);
     NSURL *url = [NSURL URLWithString:@"http://localhost:8888/petImage_upload.php"];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
-    NSData *body = [self bodyOfFile:@"image.jpg" imageData:imageData request:request];
+    
+    // 設定唯一圖片名稱
+    NSUUID *uuid = [NSUUID UUID];
+    NSString *imageName = [NSString stringWithFormat:@"%@.jpg",[uuid UUIDString]];
+    
+    NSData *body = [self bodyOfFile:imageName imageData:imageData request:request];
+    
+    // 設定圖片網址
+    imageUrl = [NSString stringWithFormat:@"http://localhost:8888/uploads/%@",imageName];
     
     NSURLSessionTask *task = [session uploadTaskWithRequest:request fromData:body completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -184,9 +272,15 @@
 -(void)insertData{
     
     NSString *breed = self.breedTextField.text;
-
     NSString *location = self.locationTextField.text;
     NSString *appearance = self.appearTextView.text;
+    NSString *displayTime = self.timeTextField.text;
+    
+    // 設定時間,UpdateTimeString儲存統一時間格式
+    NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
+    myDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *UpdateTimeString = [NSString stringWithFormat:@"%@",[myDateFormatter stringFromDate: datePicker.date]];
+    NSLog(@"%@",UpdateTimeString);
     
     NSURL *url = [NSURL URLWithString:@"http://localhost:8888/insertPetData.php"];
     
@@ -195,8 +289,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     
-    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&appearance=%@",
-                        breed,sizeString,location,appearance];
+    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@",
+                        breed,sizeString,location,appearance,UpdateTimeString,displayTime,imageUrl];
     NSData *body = [params dataUsingEncoding:NSUTF8StringEncoding];
     
     [request setHTTPBody:body];
@@ -209,7 +303,7 @@
             NSLog(@"status = %@",status);
             //自己要檢查是否有錯誤回傳
             
-            NSDictionary *newItem = @{@"breed":self.breedTextField.text,@"size":sizeString,@"location":self.locationTextField.text,@"appearance":self.appearTextView.text};
+            NSDictionary *newItem = @{@"breed":self.breedTextField.text,@"size":sizeString,@"location":self.locationTextField.text,@"appearance":self.appearTextView.text,@"UpdateTime":UpdateTimeString,@"displayTime":displayTime,@"imageUrl":imageUrl};
             [self.findPetData addObject:newItem];
             
 //            dispatch_async(dispatch_get_main_queue(), ^{
@@ -227,8 +321,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    // 上傳資料
-    [self insertData];
+
 }
 /*
  #pragma mark - Navigation
@@ -239,5 +332,6 @@
  // Pass the selected object to the new view controller.
  }
  */
+
 
 @end
