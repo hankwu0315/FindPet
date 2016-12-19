@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AE7E14FE16E70FD8B256158 /* libPods-FindPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7004E3A2092C7CCDB586C7F /* libPods-FindPet.a */; };
+		33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */; };
 		595431E91DE4334B0011DB90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431E81DE4334B0011DB90 /* main.m */; };
 		595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431EB1DE4334B0011DB90 /* AppDelegate.m */; };
 		595431F21DE4334B0011DB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595431F01DE4334B0011DB90 /* Main.storyboard */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		2AFC169775A1754C9A2587FC /* Pods-FindPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindPet/Pods-FindPet.release.xcconfig"; sourceTree = "<group>"; };
+		33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewCell.h; sourceTree = "<group>"; };
+		33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewCell.m; sourceTree = "<group>"; };
 		595431E41DE4334B0011DB90 /* FindPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595431E81DE4334B0011DB90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		595431EA1DE4334B0011DB90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				596D0C941DF8FFA30095EF3A /* ImageOperation.m */,
 				5987C9091DF987CA00AD839C /* FindPetTableViewCell.h */,
 				5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */,
+				33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */,
+				33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */,
 			);
 			path = FindPet;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */,
 				59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */,
 				595431E91DE4334B0011DB90 /* main.m in Sources */,
+				33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */,
 				595432011DE433790011DB90 /* SWRevealViewController.m in Sources */,
 				59F7FEA01DE6FA0B00815420 /* SidebarViewController.m in Sources */,
 				5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */,

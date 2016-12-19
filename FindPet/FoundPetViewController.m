@@ -189,18 +189,19 @@
 
 
 - (IBAction)done:(id)sender {
-//    [self imageUpload:uploadImage];
-//    [self insertData];
+    [self imageUpload:uploadImage];
+    [self insertData];
     
     // 回到上一個ViewController
 //    [self.navigationController popViewControllerAnimated:YES];
 //    [self dismissViewControllerAnimated:YES completion:nil];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     
-    /* 跳到下一個ViewController
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     NearPetTableViewController *controllerD = [storyboard instantiateViewControllerWithIdentifier:@"NearPetTableViewController"];
     [self.navigationController pushViewController:controllerD animated:YES];
+    /* 跳到下一個ViewController
+
      */
 }
 
@@ -321,7 +322,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
+    
 }
 /*
  #pragma mark - Navigation

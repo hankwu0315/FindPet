@@ -22,8 +22,10 @@ if ( !$result){
         $pet["breed"] = $row["breed"];
         $pet["size"] = $row["size"];
         $pet["location"] = $row["location"];
-        $pet["appearance"] = $row["appearance "];
-
+        $pet["appearance"] = $row["appearance"];
+        $pet["UpdateTime"] = $row["UpdateTime"];
+        $pet["displayTime"] = $row["displayTime"];
+        $pet["imageUrl"] = $row["imageUrl"];
         $pets[] = $pet;
         
     }

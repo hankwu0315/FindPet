@@ -9,6 +9,7 @@
 #import "NearPetTableViewController.h"
 #import "SWRevealViewController.h"
 #import "ImageOperation.h"
+#import "NearPetTableViewCell.h"
 
 @interface NearPetTableViewController ()
 
@@ -43,7 +44,6 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,17 +63,32 @@
     return self.findPetData.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 130;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"petCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"finpPetCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NearPetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     
     NSDictionary *item = self.findPetData[indexPath.row];
-    cell.textLabel.text = item[@"breed"];
-    cell.detailTextLabel.text = item[@"size"];
+//    cell.textLabel.text = item[@"breed"];
+//    cell.detailTextLabel.text = item[@"size"];
+    cell.breedLabel.text = item[@"breed"];
+    cell.sizeLabel.text = item[@"size"];
     
     
+    // 將資料庫的圖片位置存入imageUrl
+    NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
+    // 將Url轉換成NSData
+    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+    // NSData轉換成UIImage
+    UIImage *image = [UIImage imageWithData:imageData];
+    cell.findImageView.image = image;
     
     // Configure the cell...
     
@@ -100,7 +115,7 @@
             NSArray *pets = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 //
             NSDictionary *item = pets[0];
-            NSLog(@"breed=%@,size=%@,location=%@,appearance=%@",item[@"breed"],item[@"size"],item[@"location"],item[@"appearance"]);
+            NSLog(@"breed=%@,size=%@,location=%@,appearance=%@,UpdateTime=%@,displayTime=%@,imageUrl=%@",item[@"breed"],item[@"size"],item[@"location"],item[@"appearance"],item[@"UpdateTime"],item[@"displayTime"],item[@"imageUrl"]);
             self.findPetData = [NSMutableArray arrayWithArray:pets];
 
             dispatch_async(dispatch_get_main_queue(), ^{
