@@ -10,8 +10,10 @@
 #import "SWRevealViewController.h"
 #import "ImageOperation.h"
 #import "NearPetTableViewCell.h"
+#import "Pet.h"
+#import "PetViewController.h"
 
-@interface NearPetTableViewController ()
+@interface NearPetTableViewController ()<PetViewControllerDelegate>
 
 @property(nonatomic) NSMutableArray *findPetData;
 @property(nonatomic) NSOperationQueue *queue;
@@ -88,6 +90,7 @@
     NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
     // NSData轉換成UIImage
     UIImage *image = [UIImage imageWithData:imageData];
+    
     cell.findImageView.image = image;
     
     // Configure the cell...
@@ -127,6 +130,14 @@
 
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"點選到%ld筆",indexPath.row);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; //取消選擇
+    
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,15 +172,49 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"petView"]) {
+        
+        PetViewController *petViewController = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        
+        Pet *newPet = self.findPetData[indexPath.row];
+        
+        NSDictionary *item = self.findPetData[indexPath.row];
+        
+        petViewController.currentPet = newPet;
+        
+        
+        newPet.breed = item[@"breed"];
+        newPet.size = item[@"size"];
+        newPet.location = item[@"location"];
+        newPet.appearance = item[@"appearance"];
+        newPet.UpdateTime = item[@"UpdateTime"];
+        newPet.displayTime = item[@"displayTime"];
+        newPet.imageUrl = item[@"imageUrl"];
+        
+        petViewController.delegate = self;
+        
+    }
+    
+    
 }
-*/
 
 
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self query];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+//    [self query];
+}
 @end

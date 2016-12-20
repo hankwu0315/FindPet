@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g6e-d8-OEw" id="z9u-3a-LA0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-nf-TWm">
@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgJ-9V-JKi" id="Vfo-Bs-nKy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locate.png" translatesAutoresizingMaskIntoConstraints="NO" id="UWB-uI-WHo">
@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9be-9c-FYG" id="XpI-75-BxK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="found-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-is-71g">
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="3068" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Pet View Controller-->
         <scene sceneID="k2a-1a-3YL">
             <objects>
-                <viewController id="gcm-gC-wpV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="petView" id="gcm-gC-wpV" customClass="PetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PeT-sR-2z9"/>
                         <viewControllerLayoutGuide type="bottom" id="nzv-4z-qcO"/>
@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-2n-FYJ">
-                                <rect key="frame" x="16" y="262" width="443.5" height="351.5"/>
+                                <rect key="frame" x="16" y="261.5" width="443.5" height="351.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-VP-3TP">
                                         <rect key="frame" x="0.0" y="0.0" width="443.5" height="20.5"/>
@@ -374,13 +374,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rVh-2n-FYJ" firstAttribute="top" secondItem="TOg-VM-23n" secondAttribute="bottom" constant="15" id="EX5-Na-So7"/>
-                            <constraint firstItem="TOg-VM-23n" firstAttribute="top" secondItem="PeT-sR-2z9" secondAttribute="bottom" id="Gck-to-eJg"/>
+                            <constraint firstItem="TOg-VM-23n" firstAttribute="top" secondItem="PeT-sR-2z9" secondAttribute="bottom" id="I5s-sp-Pk0"/>
                             <constraint firstItem="TOg-VM-23n" firstAttribute="centerX" secondItem="M02-tl-YAj" secondAttribute="centerX" id="Rq9-JK-LrF"/>
                             <constraint firstItem="TOg-VM-23n" firstAttribute="leading" secondItem="M02-tl-YAj" secondAttribute="leadingMargin" constant="50" id="VPY-ml-e9H"/>
                             <constraint firstItem="rVh-2n-FYJ" firstAttribute="leading" secondItem="M02-tl-YAj" secondAttribute="leadingMargin" id="Zsw-sg-6Kg"/>
                             <constraint firstItem="TOg-VM-23n" firstAttribute="width" secondItem="TOg-VM-23n" secondAttribute="height" multiplier="4:3" id="gQJ-DQ-lgB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appearanceTextView" destination="efQ-Lj-MK8" id="wn0-Su-x9t"/>
+                        <outlet property="breedLabel" destination="iRS-tC-nhK" id="fVX-v4-Ezs"/>
+                        <outlet property="locationLabel" destination="65R-OS-vSd" id="w2Q-gJ-Smm"/>
+                        <outlet property="petImage" destination="TOg-VM-23n" id="s12-dD-55F"/>
+                        <outlet property="sizeLabel" destination="Pgo-h5-pzf" id="dfo-ug-BB8"/>
+                        <outlet property="timeLabel" destination="r9y-GY-iJt" id="j4i-EF-EPX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sn1-9c-RBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -417,7 +425,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="292-RM-fPH" id="f66-gw-9Cu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -584,6 +592,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="tFd-Hb-Ef7">
                             <connections>
                                 <action selector="done:" destination="BG9-Nl-t4m" id="dyG-Yn-omT"/>
+                                <segue destination="gcm-gC-wpV" kind="show" id="V8K-dz-4AD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

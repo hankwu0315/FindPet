@@ -21,6 +21,8 @@
 		59847D6C1DE7039B009EA7AD /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = 59847D6B1DE7039B009EA7AD /* locate.png */; };
 		59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */; };
 		5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */; };
+		598964AC1E091A5A00EDE6EB /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AB1E091A5A00EDE6EB /* Pet.m */; };
+		598964AF1E09428100EDE6EB /* PetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AE1E09428100EDE6EB /* PetViewController.m */; };
 		59C162A21DE7D5CC00C4BCA2 /* found-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C162A11DE7D5CC00C4BCA2 /* found-icon.png */; };
 		59C162A51DE7D64100C4BCA2 /* FoundPetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */; };
 		59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C162A61DE7E75600C4BCA2 /* camera-6.png */; };
@@ -50,6 +52,10 @@
 		59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewController.m; sourceTree = "<group>"; };
 		5987C9091DF987CA00AD839C /* FindPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPetTableViewCell.h; sourceTree = "<group>"; };
 		5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPetTableViewCell.m; sourceTree = "<group>"; };
+		598964AA1E091A5A00EDE6EB /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		598964AB1E091A5A00EDE6EB /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
+		598964AD1E09428100EDE6EB /* PetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetViewController.h; sourceTree = "<group>"; };
+		598964AE1E09428100EDE6EB /* PetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetViewController.m; sourceTree = "<group>"; };
 		59C162A11DE7D5CC00C4BCA2 /* found-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "found-icon.png"; sourceTree = "<group>"; };
 		59C162A31DE7D64100C4BCA2 /* FoundPetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPetViewController.h; sourceTree = "<group>"; };
 		59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPetViewController.m; sourceTree = "<group>"; };
@@ -132,6 +138,10 @@
 				5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */,
 				33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */,
 				33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */,
+				598964AA1E091A5A00EDE6EB /* Pet.h */,
+				598964AB1E091A5A00EDE6EB /* Pet.m */,
+				598964AD1E09428100EDE6EB /* PetViewController.h */,
+				598964AE1E09428100EDE6EB /* PetViewController.m */,
 			);
 			path = FindPet;
 			sourceTree = "<group>";
@@ -293,6 +303,8 @@
 				59F7FEA01DE6FA0B00815420 /* SidebarViewController.m in Sources */,
 				5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */,
 				59C162A51DE7D64100C4BCA2 /* FoundPetViewController.m in Sources */,
+				598964AF1E09428100EDE6EB /* PetViewController.m in Sources */,
+				598964AC1E091A5A00EDE6EB /* Pet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
