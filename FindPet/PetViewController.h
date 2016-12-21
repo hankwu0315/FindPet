@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Pet.h"
 
-@protocol PetViewControllerDelegate <NSObject>
 
-
-@end
 
 @interface PetViewController : UIViewController
 
 @property (nonatomic) Pet *currentPet;
 
-@property (nonatomic,weak) id<PetViewControllerDelegate> delegate;
+@property (nonatomic) UIImage *petImage;
+@property (nonatomic,strong) NSString *breedLabelText;
+@property (nonatomic) NSString *sizeLabelText;
+@property (nonatomic) NSString *locationLabelText;
+@property (nonatomic) NSString *timeLabelText;
+@property (nonatomic) NSString *appearanceTextViewText;
 
 @end

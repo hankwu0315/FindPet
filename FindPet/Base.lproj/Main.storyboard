@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g6e-d8-OEw" id="z9u-3a-LA0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-nf-TWm">
@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgJ-9V-JKi" id="Vfo-Bs-nKy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locate.png" translatesAutoresizingMaskIntoConstraints="NO" id="UWB-uI-WHo">
@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9be-9c-FYG" id="XpI-75-BxK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="found-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-is-71g">
@@ -177,11 +177,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3BV-Ce-DHA" id="u7h-D9-2IQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WxT-8v-hqA">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6YQ-L8-baf" id="8xQ-4P-pNS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-ty-4dU">
@@ -240,6 +240,7 @@
                                     <outlet property="findImageView" destination="Gd9-zE-Zu2" id="xeY-oT-mEV"/>
                                     <outlet property="imageView" destination="Gd9-zE-Zu2" id="YOo-F3-s90"/>
                                     <outlet property="sizeLabel" destination="RiH-H4-guV" id="Jsf-41-acH"/>
+                                    <segue destination="gcm-gC-wpV" kind="show" identifier="petView" id="gZT-fM-Cn9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -385,14 +386,14 @@
                         <outlet property="appearanceTextView" destination="efQ-Lj-MK8" id="wn0-Su-x9t"/>
                         <outlet property="breedLabel" destination="iRS-tC-nhK" id="fVX-v4-Ezs"/>
                         <outlet property="locationLabel" destination="65R-OS-vSd" id="w2Q-gJ-Smm"/>
-                        <outlet property="petImage" destination="TOg-VM-23n" id="s12-dD-55F"/>
+                        <outlet property="petImageView" destination="TOg-VM-23n" id="tmp-gp-40p"/>
                         <outlet property="sizeLabel" destination="Pgo-h5-pzf" id="dfo-ug-BB8"/>
                         <outlet property="timeLabel" destination="r9y-GY-iJt" id="j4i-EF-EPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sn1-9c-RBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3860" y="834"/>
+            <point key="canvasLocation" x="4076" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hhf-fc-pB6">
@@ -425,7 +426,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="292-RM-fPH" id="f66-gw-9Cu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -592,7 +593,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="tFd-Hb-Ef7">
                             <connections>
                                 <action selector="done:" destination="BG9-Nl-t4m" id="dyG-Yn-omT"/>
-                                <segue destination="gcm-gC-wpV" kind="show" id="V8K-dz-4AD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

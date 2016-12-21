@@ -13,7 +13,7 @@
 #import "Pet.h"
 #import "PetViewController.h"
 
-@interface NearPetTableViewController ()<PetViewControllerDelegate>
+@interface NearPetTableViewController ()
 
 @property(nonatomic) NSMutableArray *findPetData;
 @property(nonatomic) NSOperationQueue *queue;
@@ -183,22 +183,34 @@
         
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         
-        Pet *newPet = self.findPetData[indexPath.row];
+//        Pet *newPet = self.findPetData[indexPath.row];
         
         NSDictionary *item = self.findPetData[indexPath.row];
         
-        petViewController.currentPet = newPet;
+        
+        petViewController.breedLabelText = item[@"breed"];
+        petViewController.sizeLabelText = item[@"size"];
+        petViewController.locationLabelText = item[@"location"];
+        petViewController.timeLabelText = item[@"UpdateTime"];
+        petViewController.appearanceTextViewText = item[@"appearance"];
+        
+        NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        petViewController.petImage = image;
+
+        
+//        petViewController.currentPet = newPet;
         
         
-        newPet.breed = item[@"breed"];
-        newPet.size = item[@"size"];
-        newPet.location = item[@"location"];
-        newPet.appearance = item[@"appearance"];
-        newPet.UpdateTime = item[@"UpdateTime"];
-        newPet.displayTime = item[@"displayTime"];
-        newPet.imageUrl = item[@"imageUrl"];
-        
-        petViewController.delegate = self;
+//        newPet.breed = item[@"breed"];
+//        newPet.size = item[@"size"];
+//        newPet.location = item[@"location"];
+//        newPet.appearance = item[@"appearance"];
+//        newPet.UpdateTime = item[@"UpdateTime"];
+//        newPet.displayTime = item[@"displayTime"];
+//        newPet.imageUrl = item[@"imageUrl"];
         
     }
     

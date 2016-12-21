@@ -9,7 +9,7 @@
 #import "PetViewController.h"
 
 @interface PetViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *petImage;
+@property (weak, nonatomic) IBOutlet UIImageView *petImageView;
 @property (weak, nonatomic) IBOutlet UILabel *breedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -23,11 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.breedLabel.text = _currentPet.breed;
-    self.sizeLabel.text = _currentPet.size;
-    self.locationLabel.text = _currentPet.location;
-    self.timeLabel.text = _currentPet.UpdateTime;
-    self.appearanceTextView.text = _currentPet.appearance;
+    self.breedLabel.text = _breedLabelText;
+    self.sizeLabel.text = _sizeLabelText;
+    self.locationLabel.text = _locationLabelText;
+    self.timeLabel.text = _timeLabelText;
+    self.appearanceTextView.text = _appearanceTextViewText;
+    self.petImageView.image = _petImage;
 
 }
 
