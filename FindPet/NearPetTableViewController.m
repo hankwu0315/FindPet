@@ -21,6 +21,9 @@
 @end
 
 @implementation NearPetTableViewController
+{
+    UIImage *cellImage;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -89,9 +92,10 @@
     // 將Url轉換成NSData
     NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
     // NSData轉換成UIImage
-    UIImage *image = [UIImage imageWithData:imageData];
+    cellImage = [UIImage imageWithData:imageData];
     
-    cell.findImageView.image = image;
+    cell.findImageView.image = [self thumnailImage];
+    
     
     // Configure the cell...
     
@@ -201,16 +205,7 @@
         petViewController.petImage = image;
 
         
-//        petViewController.currentPet = newPet;
-        
-        
-//        newPet.breed = item[@"breed"];
-//        newPet.size = item[@"size"];
-//        newPet.location = item[@"location"];
-//        newPet.appearance = item[@"appearance"];
-//        newPet.UpdateTime = item[@"UpdateTime"];
-//        newPet.displayTime = item[@"displayTime"];
-//        newPet.imageUrl = item[@"imageUrl"];
+
         
     }
     
@@ -219,6 +214,50 @@
 
 
 
+-(UIImage*)image{
+    
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+
+    NSDictionary *item = self.findPetData[indexPath.row];
+
+    NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    return image;
+}
+
+-(UIImage*)thumnailImage{
+    
+    UIImage *image = cellImage;
+    if ( !image){   //有原圖才做縮圖
+        return nil;
+    }
+    
+    CGSize thumbnailSize = CGSizeMake(100, 100); //設定縮圖大小
+    CGFloat scale = [UIScreen mainScreen].scale; //找出目前螢幕的scale，視網膜技術為2.0
+    //產生畫布，第一個參數指定大小,第二個參數YES:不透明（黑色底）,false表示透明背景,scale為螢幕scale
+    UIGraphicsBeginImageContextWithOptions(thumbnailSize, YES, scale);
+    
+    //計算長寬要縮圖比例，取最大值MAX會變成UIViewContentModeScaleAspectFill
+    //最小值MIN會變成UIViewContentModeScaleAspectFit
+    CGFloat widthRatio = thumbnailSize.width / image.size.width;
+    CGFloat heightRadio = thumbnailSize.height / image.size.height;
+    CGFloat ratio = MAX(widthRatio,heightRadio);
+    
+    CGSize imageSize = CGSizeMake(image.size.width*ratio, image.size.height*ratio);
+    [image drawInRect:CGRectMake(-(imageSize.width-thumbnailSize.width)/2.0, -(imageSize.height-thumbnailSize.height)/2.0,
+                                 imageSize.width, imageSize.height)];
+    
+    //取得畫布上的縮圖
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    //關掉畫布
+    UIGraphicsEndImageContext();
+    return image;
+    
+    
+    
+}
 
 
 

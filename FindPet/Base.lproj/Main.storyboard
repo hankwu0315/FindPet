@@ -273,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-2n-FYJ">
-                                <rect key="frame" x="16" y="261.5" width="443.5" height="351.5"/>
+                                <rect key="frame" x="16" y="261.5" width="443.5" height="348"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-VP-3TP">
                                         <rect key="frame" x="0.0" y="0.0" width="443.5" height="20.5"/>
@@ -344,17 +344,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="elb-cu-UkA">
-                                        <rect key="frame" x="0.0" y="118" width="443.5" height="233.5"/>
+                                        <rect key="frame" x="0.0" y="118" width="443.5" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="外觀特徵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-pr-vrV">
-                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="233.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="230"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-Lj-MK8">
-                                                <rect key="frame" x="89.5" y="0.0" width="354" height="233.5"/>
+                                                <rect key="frame" x="89.5" y="0.0" width="354" height="230"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="230" id="Asr-EQ-Ets"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <connections>
