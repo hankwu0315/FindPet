@@ -246,8 +246,7 @@
     CGFloat ratio = MAX(widthRatio,heightRadio);
     
     CGSize imageSize = CGSizeMake(image.size.width*ratio, image.size.height*ratio);
-    [image drawInRect:CGRectMake(-(imageSize.width-thumbnailSize.width)/2.0, -(imageSize.height-thumbnailSize.height)/2.0,
-                                 imageSize.width, imageSize.height)];
+    [image drawInRect:CGRectMake(-(imageSize.width-thumbnailSize.width)/2.0, -(imageSize.height-thumbnailSize.height)/2.0,imageSize.width, imageSize.height)];
     
     //取得畫布上的縮圖
     image = UIGraphicsGetImageFromCurrentImageContext();
@@ -262,10 +261,10 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self query];
+//    [self query];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-//    [self query];
+    [self query];
 }
 @end

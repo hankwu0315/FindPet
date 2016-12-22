@@ -11,8 +11,10 @@
 #import <AFNetworking.h>
 #import <AFURLRequestSerialization.h>
 #import "NearPetTableViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface FoundPetViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate>
+
+@interface FoundPetViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate,UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate,CLLocationManagerDelegate>
 {
     NSArray *sizeArray;
     NSString *sizeString;
@@ -23,6 +25,7 @@
     UIDatePicker *datePicker;
     NSLocale *datelocale;
 
+    CLLocationManager *locationManager;
 }
 @property (weak, nonatomic) IBOutlet UIButton *Camera;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -64,7 +67,24 @@
     
     
     self.breedTextField.placeholder = @"請輸入品種(ex.米克斯..)";
+    
     self.locationTextField.placeholder = @"請輸入發現地址";
+    
+    //建立CLLocationManger，
+    //並存於locationManager實體變數中
+    locationManager = [[CLLocationManager alloc] init];
+    
+    // Ask user's permission 取得user授權
+    [locationManager requestWhenInUseAuthorization]; //只有使用App時才能取的位置
+    
+    //委派予self
+    locationManager.delegate = self;
+    
+    //傳送startUpdatingLocation訊息，
+    //開始更新訊息
+    [locationManager startUpdatingLocation];
+    
+    
     
     self.timeTextField.delegate = self;
     // 建立 UIDatePicker
@@ -320,6 +340,19 @@
     
     
 }
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    //第0個位置資訊，表示為最新的位置資訊
+    CLLocation * location = [locations objectAtIndex:0];
+    
+    //取得經緯度資訊，並組合成字串
+    NSString * currentLocation = [[NSString alloc] initWithFormat:@"緯度:%f, 經度:%f"
+                      , location.coordinate.latitude
+                      , location.coordinate.longitude];
+//    NSLog(@"%@",currentLocation);
+    [self.locationTextField setText:currentLocation];
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2AE7E14FE16E70FD8B256158 /* libPods-FindPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7004E3A2092C7CCDB586C7F /* libPods-FindPet.a */; };
 		33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */; };
+		5924D2831E0BF4A200498EBC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2821E0BF4A200498EBC /* MapKit.framework */; };
+		5924D2851E0BF4AA00498EBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2841E0BF4AA00498EBC /* CoreLocation.framework */; };
 		595431E91DE4334B0011DB90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431E81DE4334B0011DB90 /* main.m */; };
 		595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431EB1DE4334B0011DB90 /* AppDelegate.m */; };
 		595431F21DE4334B0011DB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595431F01DE4334B0011DB90 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		2AFC169775A1754C9A2587FC /* Pods-FindPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindPet/Pods-FindPet.release.xcconfig"; sourceTree = "<group>"; };
 		33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewCell.h; sourceTree = "<group>"; };
 		33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewCell.m; sourceTree = "<group>"; };
+		5924D2821E0BF4A200498EBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5924D2841E0BF4AA00498EBC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		595431E41DE4334B0011DB90 /* FindPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595431E81DE4334B0011DB90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		595431EA1DE4334B0011DB90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5924D2851E0BF4AA00498EBC /* CoreLocation.framework in Frameworks */,
+				5924D2831E0BF4A200498EBC /* MapKit.framework in Frameworks */,
 				2AE7E14FE16E70FD8B256158 /* libPods-FindPet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +96,8 @@
 		498BF640A7C03D4A2430CDC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5924D2841E0BF4AA00498EBC /* CoreLocation.framework */,
+				5924D2821E0BF4A200498EBC /* MapKit.framework */,
 				B7004E3A2092C7CCDB586C7F /* libPods-FindPet.a */,
 			);
 			name = Frameworks;
