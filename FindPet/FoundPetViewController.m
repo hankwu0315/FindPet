@@ -26,6 +26,9 @@
     NSLocale *datelocale;
 
     CLLocationManager *locationManager;
+    
+    NSString *lat;
+    NSString *lon;
 }
 @property (weak, nonatomic) IBOutlet UIButton *Camera;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -84,7 +87,7 @@
     //開始更新訊息
     [locationManager startUpdatingLocation];
     
-    
+
     
     self.timeTextField.delegate = self;
     // 建立 UIDatePicker
@@ -131,6 +134,28 @@
     NSLog(@"%@",Test_df);*/
     
 }
+
+- (IBAction)locateBtnPressed:(id)sender {
+    
+    //經緯度轉地址
+    CLGeocoder *geocoder = [CLGeocoder new];
+
+    CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lon doubleValue]];
+    [geocoder reverseGeocodeLocation:targetLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"ReverseGeocode fail: %@",error);
+            return ;
+        }
+        
+        CLPlacemark *placemark = placemarks.firstObject;
+//        NSDictionary *address = placemark.addressDictionary;
+//        self.locationTextField.text =[NSString stringWithFormat:@"%@",address[@"FormattedAddressLines"][0]];
+        self.locationTextField.text = [NSString stringWithFormat:@"%@%@%@%@%@",placemark.country,placemark.administrativeArea,placemark.locality,placemark.thoroughfare,placemark.subThoroughfare];
+//        NSLog(@"%@,%@,%@,%@,%@,%@",placemark.country,placemark.locality,placemark.administrativeArea,placemark.thoroughfare,placemark.subThoroughfare,placemark.postalCode);
+    }];
+}
+
 
 // 按下完成鈕後的 method
 -(void) cancelPicker {
@@ -310,8 +335,18 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     
-    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@",
-                        breed,sizeString,location,appearance,UpdateTimeString,displayTime,imageUrl];
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder geocodeAddressString:self.locationTextField.text completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"Geocode fail: %@",error);
+            return ;
+        }
+        
+    }];
+    
+    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&lat=%@&lon=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@",
+                        breed,sizeString,location,lat,lon,appearance,UpdateTimeString,displayTime,imageUrl];
     NSData *body = [params dataUsingEncoding:NSUTF8StringEncoding];
     
     [request setHTTPBody:body];
@@ -324,7 +359,7 @@
             NSLog(@"status = %@",status);
             //自己要檢查是否有錯誤回傳
             
-            NSDictionary *newItem = @{@"breed":self.breedTextField.text,@"size":sizeString,@"location":self.locationTextField.text,@"appearance":self.appearTextView.text,@"UpdateTime":UpdateTimeString,@"displayTime":displayTime,@"imageUrl":imageUrl};
+            NSDictionary *newItem = @{@"breed":self.breedTextField.text,@"size":sizeString,@"location":self.locationTextField.text,@"lat":lat,@"lon":lon,@"appearance":self.appearTextView.text,@"UpdateTime":UpdateTimeString,@"displayTime":displayTime,@"imageUrl":imageUrl};
             [self.findPetData addObject:newItem];
             
 //            dispatch_async(dispatch_get_main_queue(), ^{
@@ -344,17 +379,22 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     //第0個位置資訊，表示為最新的位置資訊
     CLLocation * location = [locations objectAtIndex:0];
-    
+
+    lat = [[NSString alloc] initWithFormat:@"%f",location.coordinate.latitude];     //緯度
+    lon = [[NSString alloc] initWithFormat:@"%f",location.coordinate.longitude];    //經度
+
     //取得經緯度資訊，並組合成字串
-    NSString * currentLocation = [[NSString alloc] initWithFormat:@"緯度:%f, 經度:%f"
-                      , location.coordinate.latitude
-                      , location.coordinate.longitude];
-//    NSLog(@"%@",currentLocation);
-    [self.locationTextField setText:currentLocation];
+//    NSString * currentLocation = [[NSString alloc] initWithFormat:@"緯度:%f, 經度:%f"
+//                      , location.coordinate.latitude
+//                      , location.coordinate.longitude];
+
+//    [self.locationTextField setText:currentLocation];
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+
+-(void)viewDidAppear:(BOOL)animated{
     
 }
 /*

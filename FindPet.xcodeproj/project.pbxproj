@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AE7E14FE16E70FD8B256158 /* libPods-FindPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7004E3A2092C7CCDB586C7F /* libPods-FindPet.a */; };
+		33A4F33A1E0EB57B0005DC64 /* LocationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A4F3391E0EB57B0005DC64 /* LocationArrow.png */; };
 		33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */; };
 		5924D2831E0BF4A200498EBC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2821E0BF4A200498EBC /* MapKit.framework */; };
 		5924D2851E0BF4AA00498EBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2841E0BF4AA00498EBC /* CoreLocation.framework */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		2AFC169775A1754C9A2587FC /* Pods-FindPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindPet/Pods-FindPet.release.xcconfig"; sourceTree = "<group>"; };
+		33A4F3391E0EB57B0005DC64 /* LocationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationArrow.png; sourceTree = "<group>"; };
 		33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewCell.h; sourceTree = "<group>"; };
 		33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewCell.m; sourceTree = "<group>"; };
 		5924D2821E0BF4A200498EBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -124,6 +126,7 @@
 		595431E61DE4334B0011DB90 /* FindPet */ = {
 			isa = PBXGroup;
 			children = (
+				33A4F3391E0EB57B0005DC64 /* LocationArrow.png */,
 				59C162A61DE7E75600C4BCA2 /* camera-6.png */,
 				59847D6B1DE7039B009EA7AD /* locate.png */,
 				59C162A11DE7D5CC00C4BCA2 /* found-icon.png */,
@@ -241,6 +244,7 @@
 				595431F41DE4334B0011DB90 /* Assets.xcassets in Resources */,
 				59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */,
 				595431F21DE4334B0011DB90 /* Main.storyboard in Resources */,
+				33A4F33A1E0EB57B0005DC64 /* LocationArrow.png in Resources */,
 				596BE9D21DE47DD50085591C /* reveal-icon.png in Resources */,
 				59C162A21DE7D5CC00C4BCA2 /* found-icon.png in Resources */,
 				59847D6C1DE7039B009EA7AD /* locate.png in Resources */,
