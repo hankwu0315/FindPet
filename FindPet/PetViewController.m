@@ -26,9 +26,12 @@
     self.breedLabel.text = _breedLabelText;
     self.sizeLabel.text = _sizeLabelText;
     self.locationLabel.text = _locationLabelText;
+    self.locationLabel.numberOfLines = 0; //自適應高度,字多換行
     self.timeLabel.text = _timeLabelText;
     self.appearanceTextView.text = _appearanceTextViewText;
     self.petImageView.image = _petImage;
+    
+    
 
 }
 

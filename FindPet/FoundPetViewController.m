@@ -234,20 +234,8 @@
 
 
 - (IBAction)done:(id)sender {
-    [self imageUpload:uploadImage];
-    [self insertData];
+    [self updateLocation];
     
-    // 回到上一個ViewController
-//    [self.navigationController popViewControllerAnimated:YES];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    NearPetTableViewController *controllerD = [storyboard instantiateViewControllerWithIdentifier:@"NearPetTableViewController"];
-    [self.navigationController pushViewController:controllerD animated:YES];
-    /* 跳到下一個ViewController
-
-     */
 }
 
 - (IBAction)Camera:(id)sender {
@@ -335,15 +323,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     
-    CLGeocoder *geocoder = [CLGeocoder new];
-    [geocoder geocodeAddressString:self.locationTextField.text completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        
-        if (error) {
-            NSLog(@"Geocode fail: %@",error);
-            return ;
-        }
-        
-    }];
+    
     
     NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&lat=%@&lon=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@",
                         breed,sizeString,location,lat,lon,appearance,UpdateTimeString,displayTime,imageUrl];
@@ -392,7 +372,39 @@
 }
 
 
-
+-(void)updateLocation{
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder geocodeAddressString:self.locationTextField.text completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        
+        if (error) {
+            NSLog(@"Geocode fail: %@",error);
+            return ;
+        }
+        
+        CLPlacemark *targetPlacemark = placemarks.firstObject;
+        NSLog(@"targetPlacemark: %f,%f",targetPlacemark.location.coordinate.latitude,targetPlacemark.location.coordinate.longitude);
+        lat=[NSString stringWithFormat:@"%f",targetPlacemark.location.coordinate.latitude];
+        lon=[NSString stringWithFormat:@"%f",targetPlacemark.location.coordinate.longitude];
+        
+        [self imageUpload:uploadImage];
+        [self insertData];
+        
+        // 回到上一個ViewController
+        //    [self.navigationController popViewControllerAnimated:YES];
+        //    [self dismissViewControllerAnimated:YES completion:nil];
+        //    [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        NearPetTableViewController *controllerD = [storyboard instantiateViewControllerWithIdentifier:@"NearPetTableViewController"];
+        [self.navigationController pushViewController:controllerD animated:YES];
+        /* 跳到下一個ViewController
+         
+         */
+        
+        
+    }];
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     
