@@ -197,6 +197,8 @@
         petViewController.locationLabelText = item[@"location"];
         petViewController.timeLabelText = item[@"UpdateTime"];
         petViewController.appearanceTextViewText = item[@"appearance"];
+        petViewController.lat = item[@"lat"];
+        petViewController.lon = item[@"lon"];
         
         NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
         NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];

@@ -135,6 +135,7 @@
     
 }
 
+
 - (IBAction)locateBtnPressed:(id)sender {
     
     //經緯度轉地址
@@ -371,7 +372,7 @@
 //    [self.locationTextField setText:currentLocation];
 }
 
-
+//做經緯度轉地址再上傳
 -(void)updateLocation{
     CLGeocoder *geocoder = [CLGeocoder new];
     [geocoder geocodeAddressString:self.locationTextField.text completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {

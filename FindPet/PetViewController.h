@@ -21,5 +21,6 @@
 @property (nonatomic) NSString *locationLabelText;
 @property (nonatomic) NSString *timeLabelText;
 @property (nonatomic) NSString *appearanceTextViewText;
-
+@property (nonatomic) NSString *lat;
+@property (nonatomic) NSString *lon;
 @end

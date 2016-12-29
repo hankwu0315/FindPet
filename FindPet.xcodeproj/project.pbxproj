@@ -12,6 +12,8 @@
 		33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */; };
 		5924D2831E0BF4A200498EBC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2821E0BF4A200498EBC /* MapKit.framework */; };
 		5924D2851E0BF4AA00498EBC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924D2841E0BF4AA00498EBC /* CoreLocation.framework */; };
+		59494DBD1E14BB0600E25D79 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 59494DBC1E14BB0600E25D79 /* map.png */; };
+		59494DC01E14D0B400E25D79 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59494DBF1E14D0B400E25D79 /* MapViewController.m */; };
 		595431E91DE4334B0011DB90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431E81DE4334B0011DB90 /* main.m */; };
 		595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 595431EB1DE4334B0011DB90 /* AppDelegate.m */; };
 		595431F21DE4334B0011DB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595431F01DE4334B0011DB90 /* Main.storyboard */; };
@@ -39,6 +41,9 @@
 		33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewCell.m; sourceTree = "<group>"; };
 		5924D2821E0BF4A200498EBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5924D2841E0BF4AA00498EBC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		59494DBC1E14BB0600E25D79 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		59494DBE1E14D0B400E25D79 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		59494DBF1E14D0B400E25D79 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		595431E41DE4334B0011DB90 /* FindPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595431E81DE4334B0011DB90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		595431EA1DE4334B0011DB90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +135,7 @@
 				59C162A61DE7E75600C4BCA2 /* camera-6.png */,
 				59847D6B1DE7039B009EA7AD /* locate.png */,
 				59C162A11DE7D5CC00C4BCA2 /* found-icon.png */,
+				59494DBC1E14BB0600E25D79 /* map.png */,
 				595431EA1DE4334B0011DB90 /* AppDelegate.h */,
 				595431EB1DE4334B0011DB90 /* AppDelegate.m */,
 				595431F01DE4334B0011DB90 /* Main.storyboard */,
@@ -153,6 +159,8 @@
 				598964AB1E091A5A00EDE6EB /* Pet.m */,
 				598964AD1E09428100EDE6EB /* PetViewController.h */,
 				598964AE1E09428100EDE6EB /* PetViewController.m */,
+				59494DBE1E14D0B400E25D79 /* MapViewController.h */,
+				59494DBF1E14D0B400E25D79 /* MapViewController.m */,
 			);
 			path = FindPet;
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 				596BE9D31DE47DD50085591C /* reveal-icon@2x.png in Resources */,
 				595431F41DE4334B0011DB90 /* Assets.xcassets in Resources */,
 				59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */,
+				59494DBD1E14BB0600E25D79 /* map.png in Resources */,
 				595431F21DE4334B0011DB90 /* Main.storyboard in Resources */,
 				33A4F33A1E0EB57B0005DC64 /* LocationArrow.png in Resources */,
 				596BE9D21DE47DD50085591C /* reveal-icon.png in Resources */,
@@ -309,6 +318,7 @@
 				596D0C951DF8FFA30095EF3A /* ImageOperation.m in Sources */,
 				595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */,
 				59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */,
+				59494DC01E14D0B400E25D79 /* MapViewController.m in Sources */,
 				595431E91DE4334B0011DB90 /* main.m in Sources */,
 				33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */,
 				595432011DE433790011DB90 /* SWRevealViewController.m in Sources */,
