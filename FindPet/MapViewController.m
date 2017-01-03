@@ -7,8 +7,15 @@
 //
 
 #import "MapViewController.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController ()
+@interface MapViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>
+{
+    CLLocationManager *locationManager;
+}
+
+@property (weak, nonatomic) IBOutlet MKMapView *mainMapView;
 
 @end
 
@@ -16,13 +23,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    locationManager = [CLLocationManager new];
+    
+    //取得user授權
+    [locationManager requestWhenInUseAuthorization];
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.activityType = CLActivityTypeFitness;
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+
+    self.mainMapView.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    
+}
+
+
 
 /*
 #pragma mark - Navigation
