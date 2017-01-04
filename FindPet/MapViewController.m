@@ -35,7 +35,6 @@
     [locationManager startUpdatingLocation];
     self.mainMapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     self.mainMapView.delegate = self;
-    
     [self query];
     
 }
@@ -51,19 +50,17 @@
     
     static dispatch_once_t moveMapOnceToken = 0;    //dispatch_once在整個生命週期只run一次
     dispatch_once(&moveMapOnceToken, ^{
-//        MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);   //地圖縮放大小(經緯度)
-//        MKCoordinateRegion region = MKCoordinateRegionMake(currentLocation.coordinate, span);
-//        [_mainMapView setRegion:region animated:true];
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);   //地圖縮放大小(經緯度)
+        MKCoordinateRegion region = MKCoordinateRegionMake(currentLocation.coordinate, span);
+        [_mainMapView setRegion:region animated:true];
         
         // Add Annotation
         CLLocationCoordinate2D myCoordinate = currentLocation.coordinate;
       
         MKPointAnnotation *annotation = [MKPointAnnotation new];
         annotation.coordinate = myCoordinate;
-
-
+        
     });
-    
     
 }
 
@@ -101,15 +98,21 @@
     //宣告一個陣列來存放標籤
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i <= 10; i++) {
+    NSDictionary *item = [NSDictionary new];
+    NSLog(@"FIND%lu",(unsigned long)[findPetData count]);
+    
+    for (int i = 0; i < [findPetData count]; i++) {
+        
+        item = findPetData[i];
         
         //隨機設定標籤的緯度
         CLLocationCoordinate2D pinCenter;
-        pinCenter.latitude = 24.9 + (float)(arc4random() % 100) / 1000;
-        pinCenter.longitude = 121.5 + (float)(arc4random() % 100) / 1000;
-        
+        pinCenter.latitude = [item[@"lat"] doubleValue];
+        pinCenter.longitude = [item[@"lon"] doubleValue];
+        NSLog(@"LAT:%f",pinCenter.latitude);
+        NSLog(@"LON:%f",pinCenter.longitude);
+
         //建立一個地圖標籤並設定內文
-//        PlacePin *annotation = [[PlacePin alloc]initWithCoordinate:pinCenter];
         MKPointAnnotation *annotation = [MKPointAnnotation new];
         annotation.coordinate = pinCenter;
 
@@ -122,6 +125,10 @@
     //將陣列中所有的標籤顯示在地圖上
     [_mainMapView addAnnotations:annotations];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self query];
 }
 
 /*
