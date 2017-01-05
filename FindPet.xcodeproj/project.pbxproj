@@ -23,6 +23,8 @@
 		596BE9D21DE47DD50085591C /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 596BE9D01DE47DD50085591C /* reveal-icon.png */; };
 		596BE9D31DE47DD50085591C /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596BE9D11DE47DD50085591C /* reveal-icon@2x.png */; };
 		596D0C951DF8FFA30095EF3A /* ImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D0C941DF8FFA30095EF3A /* ImageOperation.m */; };
+		597E1C471E1E08E300D23B87 /* petsLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 597E1C461E1E08E300D23B87 /* petsLocation.png */; };
+		597E1C491E1E3C2900D23B87 /* petsLocation64.png in Resources */ = {isa = PBXBuildFile; fileRef = 597E1C481E1E3C2900D23B87 /* petsLocation64.png */; };
 		59847D6C1DE7039B009EA7AD /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = 59847D6B1DE7039B009EA7AD /* locate.png */; };
 		59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */; };
 		5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */; };
@@ -58,6 +60,8 @@
 		596BE9D11DE47DD50085591C /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
 		596D0C931DF8FFA30095EF3A /* ImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOperation.h; sourceTree = "<group>"; };
 		596D0C941DF8FFA30095EF3A /* ImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOperation.m; sourceTree = "<group>"; };
+		597E1C461E1E08E300D23B87 /* petsLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petsLocation.png; sourceTree = "<group>"; };
+		597E1C481E1E3C2900D23B87 /* petsLocation64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petsLocation64.png; sourceTree = "<group>"; };
 		59847D6B1DE7039B009EA7AD /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate.png; sourceTree = "<group>"; };
 		59847D6D1DE70A40009EA7AD /* NearPetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewController.h; sourceTree = "<group>"; };
 		59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewController.m; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		595431E61DE4334B0011DB90 /* FindPet */ = {
 			isa = PBXGroup;
 			children = (
+				597E1C481E1E3C2900D23B87 /* petsLocation64.png */,
+				597E1C461E1E08E300D23B87 /* petsLocation.png */,
 				33A4F3391E0EB57B0005DC64 /* LocationArrow.png */,
 				59C162A61DE7E75600C4BCA2 /* camera-6.png */,
 				59847D6B1DE7039B009EA7AD /* locate.png */,
@@ -247,9 +253,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				597E1C491E1E3C2900D23B87 /* petsLocation64.png in Resources */,
 				595431F71DE4334B0011DB90 /* LaunchScreen.storyboard in Resources */,
 				596BE9D31DE47DD50085591C /* reveal-icon@2x.png in Resources */,
 				595431F41DE4334B0011DB90 /* Assets.xcassets in Resources */,
+				597E1C471E1E08E300D23B87 /* petsLocation.png in Resources */,
 				59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */,
 				59494DBD1E14BB0600E25D79 /* map.png in Resources */,
 				595431F21DE4334B0011DB90 /* Main.storyboard in Resources */,

@@ -115,7 +115,8 @@
         //建立一個地圖標籤並設定內文
         MKPointAnnotation *annotation = [MKPointAnnotation new];
         annotation.coordinate = pinCenter;
-
+        annotation.title = item[@"breed"];
+        annotation.subtitle = item[@"size"];
         
         //將製作好的標籤放入陣列中
         [annotations addObject:annotation];
@@ -125,6 +126,44 @@
     //將陣列中所有的標籤顯示在地圖上
     [_mainMapView addAnnotations:annotations];
     
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    if (annotation == mapView.userLocation) {
+        return nil;
+    }
+    
+    NSString *reuseID = @"pets";
+    
+    MKAnnotationView *result = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseID];
+    if(result == nil){
+        result = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseID];
+    } else {
+        result.annotation = annotation;
+    }
+    
+    result.canShowCallout = true;   //出現泡泡
+    
+    //LeftCallouttAccessoryView
+    UIImage *image = [UIImage imageNamed:@"petsLocation64.png"];
+    result.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:image];
+    
+    //RightCallouttAccessoryView
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button addTarget:self action:@selector(calloutButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    result.rightCalloutAccessoryView = button;
+    
+    // Use our own image as annotation view.
+    result.image = image;
+    
+    return result;
+}
+
+-(void) calloutButtonTapped:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Button Tapped." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:ok];
+    [self  presentViewController:alert animated:true completion:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
