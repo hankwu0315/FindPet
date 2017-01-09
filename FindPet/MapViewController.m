@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "PetViewController.h"
+#import "PetPointAnnotation.h"
 
 @interface MapViewController ()<CLLocationManagerDelegate,MKMapViewDelegate>
 {
@@ -101,10 +103,12 @@
     NSDictionary *item = [NSDictionary new];
     NSLog(@"FIND%lu",(unsigned long)[findPetData count]);
     
+    
+    
     for (int i = 0; i < [findPetData count]; i++) {
         
         item = findPetData[i];
-        
+
         //隨機設定標籤的緯度
         CLLocationCoordinate2D pinCenter;
         pinCenter.latitude = [item[@"lat"] doubleValue];
@@ -114,12 +118,18 @@
 
         //建立一個地圖標籤並設定內文
         MKPointAnnotation *annotation = [MKPointAnnotation new];
+        PetPointAnnotation *petAnnotation = [PetPointAnnotation new];
+        petAnnotation.coordinate=pinCenter;
+        petAnnotation.title = item[@"breed"];
+        petAnnotation.subtitle = item[@"size"];
+        petAnnotation.sizeLabelText = item[@"size"];
+        
         annotation.coordinate = pinCenter;
         annotation.title = item[@"breed"];
         annotation.subtitle = item[@"size"];
-        
+
         //將製作好的標籤放入陣列中
-        [annotations addObject:annotation];
+        [annotations addObject:petAnnotation];
 
     }
     
@@ -160,16 +170,44 @@
 }
 
 -(void) calloutButtonTapped:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Button Tapped." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:ok];
-    [self  presentViewController:alert animated:true completion:nil];
+    PetViewController *petViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"petView"];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    [self.navigationController pushViewController:petViewController animated:YES];
+//    [self presentViewController:petViewController animated:YES completion:nil];
+//
+//    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+//
+    NSDictionary *item = findPetData;
+//
+//    
+    petViewController.breedLabelText = item[@"breed"];
+    petViewController.sizeLabelText = item[@"size"];
+    petViewController.locationLabelText = item[@"location"];
+    petViewController.timeLabelText = item[@"UpdateTime"];
+    petViewController.appearanceTextViewText = item[@"appearance"];
+    petViewController.lat = item[@"lat"];
+    petViewController.lon = item[@"lon"];
+
+    NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    petViewController.petImage = image;
+
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Button Tapped." preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+//    [alert addAction:ok];
+//    [self  presentViewController:alert animated:true completion:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [self query];
 }
 
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    NSLog(@"ok");
+}
 /*
 #pragma mark - Navigation
 
