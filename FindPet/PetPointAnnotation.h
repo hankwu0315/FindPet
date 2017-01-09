@@ -18,5 +18,7 @@
 @property (nonatomic) NSString *appearanceTextViewText;
 @property (nonatomic) NSString *lat;
 @property (nonatomic) NSString *lon;
+@property (nonatomic) NSInteger index;
+
 
 @end
