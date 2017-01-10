@@ -176,9 +176,11 @@
 //            [button addTarget:self action:@selector(calloutButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 //            pinView.rightCalloutAccessoryView = button;
             
-            pinView.tag = notationTag;
+//            pinView.tag = notationTag;
             
-            NSDictionary *item = findPetData[pinView.tag];
+            PetPointAnnotation *pet =  pinView.annotation;
+            
+            NSDictionary *item = findPetData[pet.index];
             
             //LeftCallouttAccessoryView
 //            UIImage *image = [UIImage imageNamed:@"petsLocation64.png"];
@@ -188,15 +190,17 @@
             
             // Use our own image as annotation view.
             pinView.image = [self thumnailImage];
+//            pinView.image = image;
             
             pinView.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:pinView.image];
             
             
-            
+            pinView.annotation = annotation;
+
         } else {
             pinView.annotation = annotation;
         }
-        notationTag++;
+//        notationTag++;
         return pinView;
 
     }
@@ -240,11 +244,13 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     
+    PetPointAnnotation *pet =  view.annotation;
+    
     PetViewController *petViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"petView"];
 
     [self.navigationController pushViewController:petViewController animated:YES];
 
-    NSDictionary *item = findPetData[view.tag];
+    NSDictionary *item = findPetData[pet.index];
     
 
     petViewController.breedLabelText = item[@"breed"];
@@ -262,7 +268,7 @@
     petViewController.petImage = image;
     
     
-    notationTag = 0;
+//    notationTag = 0;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -271,6 +277,8 @@
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"ok");
+    
+    
 
 }
 

@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *breedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *findImageView;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @end

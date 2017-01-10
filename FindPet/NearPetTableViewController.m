@@ -12,8 +12,10 @@
 #import "NearPetTableViewCell.h"
 #import "Pet.h"
 #import "PetViewController.h"
+//#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface NearPetTableViewController ()
+@interface NearPetTableViewController ()<CLLocationManagerDelegate>
 
 @property(nonatomic) NSMutableArray *findPetData;
 @property(nonatomic) NSOperationQueue *queue;
@@ -22,7 +24,15 @@
 
 @implementation NearPetTableViewController
 {
-    UIImage *cellImage;
+//    UIImage *cellImage;
+    
+    CLLocationManager *locationManager;
+    
+    CLLocation *currentLocation;
+    
+    double petDistance;
+    
+    NSString *petDistanceString;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -48,7 +58,22 @@
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor brownColor];
     
+    //建立CLLocationManger，
+    //並存於locationManager實體變數中
+    locationManager = [[CLLocationManager alloc] init];
+    
+    // Ask user's permission 取得user授權
+    [locationManager requestWhenInUseAuthorization]; //只有使用App時才能取的位置
+    
+    //委派予self
+    locationManager.delegate = self;
+    
+    //傳送startUpdatingLocation訊息，
+    //開始更新訊息
+    [locationManager startUpdatingLocation];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,12 +84,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return self.findPetData.count;
 }
 
@@ -87,14 +110,37 @@
     cell.sizeLabel.text = item[@"size"];
     
     
+    //第二个坐标
+    CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
+    
+    petDistance = [self getDistance:stopLocation fromLocationStart:currentLocation];
+    petDistanceString = [[NSString alloc]init];
+//    if (petDistance>=1000) {
+//        petDistanceString = [petDistanceString stringByAppendingString:@"%f km",petDistance];
+////        petDistanceString = [NSString stringWithFormat:<#(nonnull NSString *), ...#>]
+//    }else{
+//        petDistanceString = [petDistanceString stringByAppendingString:@"m"];
+//    }
+    
+    cell.distanceLabel.text = petDistanceString;
+    
     // 將資料庫的圖片位置存入imageUrl
     NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
-    // 將Url轉換成NSData
-    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        // 將Url轉換成NSData
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        UIImage *image = [UIImage imageWithData:imageData];
+        UIImage *smallImage = [self thumnailImage:image];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NearPetTableViewCell *cell1 = [tableView cellForRowAtIndexPath:indexPath];
+            if ( cell1 ){
+                cell1.findImageView.image = smallImage;
+//                [cell1 setNeedsLayout];
+            }
+        });
+    });
     // NSData轉換成UIImage
-    cellImage = [UIImage imageWithData:imageData];
-    
-    cell.findImageView.image = [self thumnailImage];
+//    cellImage = [UIImage imageWithData:imageData];
     
     
     // Configure the cell...
@@ -205,13 +251,7 @@
         UIImage *image = [UIImage imageWithData:imageData];
         
         petViewController.petImage = image;
-
-        
-
-        
     }
-    
-    
 }
 
 
@@ -229,7 +269,7 @@
     return image;
 }
 
--(UIImage*)thumnailImage{
+-(UIImage*)thumnailImage:(UIImage *)cellImage{
     
     UIImage *image = cellImage;
     if ( !image){   //有原圖才做縮圖
@@ -260,6 +300,22 @@
     
 }
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+
+    currentLocation = [locations lastObject];
+//    CLLocationCoordinate2D coor = currentLocation.coordinate;
+//    lat = [[NSString alloc] initWithFormat:@"%f", coor.latitude] ;
+//    lon = [[NSString alloc] initWithFormat:@"%f", coor.longitude];
+    
+    //[self.locationManager stopUpdatingLocation];
+}
+
+-(double)getDistance :(CLLocation*)locationStop  fromLocationStart:(CLLocation*)myLocation{
+    
+    // 计算距离
+    CLLocationDistance petsDistance=[locationStop distanceFromLocation:myLocation];
+    return petsDistance;
+}
 
 
 -(void)viewWillAppear:(BOOL)animated{

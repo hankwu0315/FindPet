@@ -740,6 +740,7 @@ const int FrontViewPositionNone = 0xff;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.view.backgroundColor = [UIColor whiteColor];
 
     // Uncomment the following code if you want the child controllers
     // to be loaded at this point.

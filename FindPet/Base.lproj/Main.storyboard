@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -41,13 +41,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="urn-1s-heV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="title" id="g6e-d8-OEw">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g6e-d8-OEw" id="z9u-3a-LA0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-nf-TWm">
@@ -62,12 +62,13 @@
                                         <constraint firstItem="t0h-nf-TWm" firstAttribute="centerY" secondItem="z9u-3a-LA0" secondAttribute="centerY" id="Opj-5C-WDc"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearPet" id="hgJ-9V-JKi">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgJ-9V-JKi" id="Vfo-Bs-nKy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locate.png" translatesAutoresizingMaskIntoConstraints="NO" id="UWB-uI-WHo">
@@ -89,6 +90,7 @@
                                         <constraint firstItem="UWB-uI-WHo" firstAttribute="width" secondItem="Vfo-Bs-nKy" secondAttribute="width" multiplier="38:375" id="zwJ-mT-E4N"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="eBB-rM-KeW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="jGC-cZ-wb1"/>
                                 </connections>
@@ -97,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9be-9c-FYG" id="XpI-75-BxK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="found-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-is-71g">
@@ -119,6 +121,7 @@
                                         <constraint firstItem="acv-dw-EU2" firstAttribute="centerY" secondItem="XpI-75-BxK" secondAttribute="centerY" id="ZvI-Cf-W5Y"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="TYB-U2-XOu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eIE-jm-KWX"/>
                                 </connections>
@@ -194,7 +197,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6YQ-L8-baf" id="8xQ-4P-pNS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-ty-4dU">
@@ -212,8 +215,8 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-6.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gd9-zE-Zu2">
-                                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-6.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gd9-zE-Zu2">
+                                            <rect key="frame" x="8" y="15" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="XFK-sz-Pfo"/>
                                                 <constraint firstAttribute="height" constant="100" id="cq6-cG-sgb"/>
@@ -225,20 +228,28 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distanceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEx-7i-LUt">
+                                            <rect key="frame" x="260" y="54.5" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Gd9-zE-Zu2" firstAttribute="centerY" secondItem="8xQ-4P-pNS" secondAttribute="centerY" id="6Ib-La-HL4"/>
+                                        <constraint firstItem="kEx-7i-LUt" firstAttribute="centerY" secondItem="8xQ-4P-pNS" secondAttribute="centerY" id="9gV-zt-LoB"/>
                                         <constraint firstItem="QrJ-ty-4dU" firstAttribute="leading" secondItem="8xQ-4P-pNS" secondAttribute="leadingMargin" constant="130" id="BAC-2G-wJ6"/>
-                                        <constraint firstItem="Gd9-zE-Zu2" firstAttribute="top" secondItem="8xQ-4P-pNS" secondAttribute="topMargin" id="FWX-6s-dGD"/>
-                                        <constraint firstItem="Gd9-zE-Zu2" firstAttribute="leading" secondItem="8xQ-4P-pNS" secondAttribute="leadingMargin" id="Uzx-6U-mtd"/>
+                                        <constraint firstItem="Gd9-zE-Zu2" firstAttribute="leading" secondItem="8xQ-4P-pNS" secondAttribute="leading" constant="8" id="MlZ-Md-RbD"/>
                                         <constraint firstItem="RiH-H4-guV" firstAttribute="leading" secondItem="8xQ-4P-pNS" secondAttribute="leadingMargin" constant="130" id="VbB-SL-Wrx"/>
                                         <constraint firstItem="QrJ-ty-4dU" firstAttribute="top" secondItem="8xQ-4P-pNS" secondAttribute="topMargin" id="VfI-Z7-7xb"/>
                                         <constraint firstItem="RiH-H4-guV" firstAttribute="top" secondItem="QrJ-ty-4dU" secondAttribute="bottom" constant="15" id="c1e-09-WUr"/>
+                                        <constraint firstItem="kEx-7i-LUt" firstAttribute="trailing" secondItem="8xQ-4P-pNS" secondAttribute="trailingMargin" id="jDG-Nl-5Ky"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="breedLabel" destination="QrJ-ty-4dU" id="vU2-cY-4OW"/>
+                                    <outlet property="distanceLabel" destination="kEx-7i-LUt" id="gB5-6G-4CO"/>
                                     <outlet property="findImageView" destination="Gd9-zE-Zu2" id="xeY-oT-mEV"/>
-                                    <outlet property="imageView" destination="Gd9-zE-Zu2" id="YOo-F3-s90"/>
                                     <outlet property="sizeLabel" destination="RiH-H4-guV" id="Jsf-41-acH"/>
                                     <segue destination="gcm-gC-wpV" kind="show" identifier="petView" id="gZT-fM-Cn9"/>
                                 </connections>
@@ -478,7 +489,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="292-RM-fPH" id="f66-gw-9Cu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

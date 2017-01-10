@@ -31,6 +31,8 @@
 		5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */; };
 		598964AC1E091A5A00EDE6EB /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AB1E091A5A00EDE6EB /* Pet.m */; };
 		598964AF1E09428100EDE6EB /* PetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AE1E09428100EDE6EB /* PetViewController.m */; };
+		59B196CE1E24954000954AEC /* Cats .jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59B196CD1E24954000954AEC /* Cats .jpg */; };
+		59B196F61E24A7A800954AEC /* Cat.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 59B196F51E24A7A800954AEC /* Cat.JPG */; };
 		59C162A21DE7D5CC00C4BCA2 /* found-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C162A11DE7D5CC00C4BCA2 /* found-icon.png */; };
 		59C162A51DE7D64100C4BCA2 /* FoundPetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */; };
 		59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C162A61DE7E75600C4BCA2 /* camera-6.png */; };
@@ -74,6 +76,8 @@
 		598964AB1E091A5A00EDE6EB /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 		598964AD1E09428100EDE6EB /* PetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetViewController.h; sourceTree = "<group>"; };
 		598964AE1E09428100EDE6EB /* PetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetViewController.m; sourceTree = "<group>"; };
+		59B196CD1E24954000954AEC /* Cats .jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cats .jpg"; sourceTree = "<group>"; };
+		59B196F51E24A7A800954AEC /* Cat.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cat.JPG; sourceTree = "<group>"; };
 		59C162A11DE7D5CC00C4BCA2 /* found-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "found-icon.png"; sourceTree = "<group>"; };
 		59C162A31DE7D64100C4BCA2 /* FoundPetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPetViewController.h; sourceTree = "<group>"; };
 		59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPetViewController.m; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		595431E61DE4334B0011DB90 /* FindPet */ = {
 			isa = PBXGroup;
 			children = (
+				59B196CD1E24954000954AEC /* Cats .jpg */,
 				597E1C481E1E3C2900D23B87 /* petsLocation64.png */,
 				597E1C461E1E08E300D23B87 /* petsLocation.png */,
 				33A4F3391E0EB57B0005DC64 /* LocationArrow.png */,
@@ -145,6 +150,7 @@
 				59847D6B1DE7039B009EA7AD /* locate.png */,
 				59C162A11DE7D5CC00C4BCA2 /* found-icon.png */,
 				59494DBC1E14BB0600E25D79 /* map.png */,
+				59B196F51E24A7A800954AEC /* Cat.JPG */,
 				595431EA1DE4334B0011DB90 /* AppDelegate.h */,
 				595431EB1DE4334B0011DB90 /* AppDelegate.m */,
 				595431F01DE4334B0011DB90 /* Main.storyboard */,
@@ -261,8 +267,10 @@
 				597E1C491E1E3C2900D23B87 /* petsLocation64.png in Resources */,
 				595431F71DE4334B0011DB90 /* LaunchScreen.storyboard in Resources */,
 				596BE9D31DE47DD50085591C /* reveal-icon@2x.png in Resources */,
+				59B196CE1E24954000954AEC /* Cats .jpg in Resources */,
 				595431F41DE4334B0011DB90 /* Assets.xcassets in Resources */,
 				597E1C471E1E08E300D23B87 /* petsLocation.png in Resources */,
+				59B196F61E24A7A800954AEC /* Cat.JPG in Resources */,
 				59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */,
 				59494DBD1E14BB0600E25D79 /* map.png in Resources */,
 				595431F21DE4334B0011DB90 /* Main.storyboard in Resources */,
