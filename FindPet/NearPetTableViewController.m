@@ -17,7 +17,7 @@
 
 @interface NearPetTableViewController ()<CLLocationManagerDelegate>
 
-@property(nonatomic) NSMutableArray *findPetData;
+//@property(nonatomic) NSMutableArray *findPetData;
 @property(nonatomic) NSOperationQueue *queue;
 
 @end
@@ -25,6 +25,9 @@
 @implementation NearPetTableViewController
 {
 //    UIImage *cellImage;
+    NSMutableArray *findPetData;
+    
+    NSMutableDictionary *petsDict;
     
     CLLocationManager *locationManager;
     
@@ -88,7 +91,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.findPetData.count;
+    return findPetData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,30 +102,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"finpPetCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NearPetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    
-    NSDictionary *item = self.findPetData[indexPath.row];
-//    cell.textLabel.text = item[@"breed"];
-//    cell.detailTextLabel.text = item[@"size"];
+    NSMutableDictionary *item = findPetData[indexPath.row];
+
     cell.breedLabel.text = item[@"breed"];
     cell.sizeLabel.text = item[@"size"];
     
     
-    //第二个坐标
+    //發現的動物座標
     CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
     
     petDistance = [self getDistance:stopLocation fromLocationStart:currentLocation];
-    petDistanceString = [[NSString alloc]init];
-//    if (petDistance>=1000) {
-//        petDistanceString = [petDistanceString stringByAppendingString:@"%f km",petDistance];
-////        petDistanceString = [NSString stringWithFormat:<#(nonnull NSString *), ...#>]
-//    }else{
-//        petDistanceString = [petDistanceString stringByAppendingString:@"m"];
-//    }
+//    petDistanceString = [NSString stringWithFormat:@"%.2f",petDistance];
+    petDistanceString = @"kkk";
     
-    cell.distanceLabel.text = petDistanceString;
+    petsDict = findPetData[indexPath.row];
+    
+    [item setValue:petDistanceString forKey:@"distance"];
+    
+//    if (petDistance>=1000) {
+//        petDistance = petDistance/1000;
+//        petDistanceString = [NSString stringWithFormat:@"%.2f km",petDistance];
+//    }else{
+//        petDistanceString = [NSString stringWithFormat:@"%.2f m",petDistance];
+//    }
+   
+//    cell.distanceLabel.text = petDistanceString;
     
     // 將資料庫的圖片位置存入imageUrl
     NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
@@ -141,7 +147,6 @@
     });
     // NSData轉換成UIImage
 //    cellImage = [UIImage imageWithData:imageData];
-    
     
     // Configure the cell...
     
@@ -165,11 +170,18 @@
 //                    NSString *content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //                    NSLog(@"json = %@",content);
             NSError *error = nil;
-            NSArray *pets = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-//
-            NSDictionary *item = pets[0];
+//            NSArray *pets = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            findPetData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+
+            NSDictionary *item = findPetData[0];
             NSLog(@"breed=%@,size=%@,location=%@,appearance=%@,UpdateTime=%@,displayTime=%@,imageUrl=%@",item[@"breed"],item[@"size"],item[@"location"],item[@"appearance"],item[@"UpdateTime"],item[@"displayTime"],item[@"imageUrl"]);
-            self.findPetData = [NSMutableArray arrayWithArray:pets];
+            
+//            for (int i = 0; findPetData.count; i++) {
+//                petsDict = pets[i];
+//                [petsDict setObject:petDistanceString forKey:@"distance"];
+//            }
+//            
+//            findPetData = [NSMutableArray arrayWithArray:pets];
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -233,9 +245,7 @@
         
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         
-//        Pet *newPet = self.findPetData[indexPath.row];
-        
-        NSDictionary *item = self.findPetData[indexPath.row];
+        NSDictionary *item = findPetData[indexPath.row];
         
         
         petViewController.breedLabelText = item[@"breed"];
@@ -260,7 +270,7 @@
     
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
 
-    NSDictionary *item = self.findPetData[indexPath.row];
+    NSDictionary *item = findPetData[indexPath.row];
 
     NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
     NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
@@ -269,10 +279,11 @@
     return image;
 }
 
+
 -(UIImage*)thumnailImage:(UIImage *)cellImage{
     
-    UIImage *image = cellImage;
-    if ( !image){   //有原圖才做縮圖
+//    UIImage *image = cellImage;
+    if ( !cellImage){   //有原圖才做縮圖
         return nil;
     }
     
@@ -283,20 +294,18 @@
     
     //計算長寬要縮圖比例，取最大值MAX會變成UIViewContentModeScaleAspectFill
     //最小值MIN會變成UIViewContentModeScaleAspectFit
-    CGFloat widthRatio = thumbnailSize.width / image.size.width;
-    CGFloat heightRadio = thumbnailSize.height / image.size.height;
+    CGFloat widthRatio = thumbnailSize.width / cellImage.size.width;
+    CGFloat heightRadio = thumbnailSize.height / cellImage.size.height;
     CGFloat ratio = MAX(widthRatio,heightRadio);
     
-    CGSize imageSize = CGSizeMake(image.size.width*ratio, image.size.height*ratio);
-    [image drawInRect:CGRectMake(-(imageSize.width-thumbnailSize.width)/2.0, -(imageSize.height-thumbnailSize.height)/2.0,imageSize.width, imageSize.height)];
+    CGSize imageSize = CGSizeMake(cellImage.size.width*ratio, cellImage.size.height*ratio);
+    [cellImage drawInRect:CGRectMake(-(imageSize.width-thumbnailSize.width)/2.0, -(imageSize.height-thumbnailSize.height)/2.0,imageSize.width, imageSize.height)];
     
     //取得畫布上的縮圖
-    image = UIGraphicsGetImageFromCurrentImageContext();
+    cellImage = UIGraphicsGetImageFromCurrentImageContext();
     //關掉畫布
     UIGraphicsEndImageContext();
-    return image;
-    
-    
+    return cellImage;
     
 }
 
@@ -311,15 +320,9 @@
 }
 
 -(double)getDistance :(CLLocation*)locationStop  fromLocationStart:(CLLocation*)myLocation{
-    
-    // 计算距离
+    // 計算距離
     CLLocationDistance petsDistance=[locationStop distanceFromLocation:myLocation];
     return petsDistance;
-}
-
-
--(void)viewWillAppear:(BOOL)animated{
-//    [self query];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

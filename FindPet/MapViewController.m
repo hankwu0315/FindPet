@@ -16,9 +16,7 @@
 {
     CLLocationManager *locationManager;
     NSMutableArray *findPetData;
-    
-    int notationTag;
-    
+
     UIImage *annotationImage;
     //宣告一個陣列來存放標籤
     NSMutableArray *annotations;
@@ -44,8 +42,6 @@
     self.mainMapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     self.mainMapView.delegate = self;
     [self query];
-    
-    notationTag = 0;
     
 }
 
@@ -194,7 +190,6 @@
             
             pinView.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:pinView.image];
             
-            
             pinView.annotation = annotation;
 
         } else {
@@ -209,37 +204,7 @@
 }
 
 -(void) calloutButtonTapped:(id)sender {
-    //    PetViewController *petViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"petView"];
-    //    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    //
-    //    [self.navigationController pushViewController:petViewController animated:YES];
-    //    //    [self presentViewController:petViewController animated:YES completion:nil];
-    //    //
-    //    //    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-    //    //
-    //
-    //
-    //    NSDictionary *item = findPetData;
-    //    //
-    //    //
-    //    petViewController.breedLabelText = item[@"breed"];
-    //    petViewController.sizeLabelText = item[@"size"];
-    //    petViewController.locationLabelText = item[@"location"];
-    //    petViewController.timeLabelText = item[@"UpdateTime"];
-    //    petViewController.appearanceTextViewText = item[@"appearance"];
-    //    petViewController.lat = item[@"lat"];
-    //    petViewController.lon = item[@"lon"];
-    //
-    //    NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
-    //    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-    //    UIImage *image = [UIImage imageWithData:imageData];
-    //
-    //    petViewController.petImage = image;
-    
-    //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Button Tapped." preferredStyle:UIAlertControllerStyleAlert];
-    //    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
-    //    [alert addAction:ok];
-    //    [self  presentViewController:alert animated:true completion:nil];
+
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
@@ -266,9 +231,7 @@
     UIImage *image = [UIImage imageWithData:imageData];
     
     petViewController.petImage = image;
-    
-    
-//    notationTag = 0;
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -277,8 +240,6 @@
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"ok");
-    
-    
 
 }
 
