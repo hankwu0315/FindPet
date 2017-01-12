@@ -12,7 +12,6 @@
 #import "NearPetTableViewCell.h"
 #import "Pet.h"
 #import "PetViewController.h"
-//#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface NearPetTableViewController ()<CLLocationManagerDelegate>
@@ -25,9 +24,8 @@
 @implementation NearPetTableViewController
 {
 //    UIImage *cellImage;
-    NSMutableArray *findPetData;
-    
-    NSMutableDictionary *petsDict;
+    NSArray *findPetData;
+    NSMutableArray *addDisfindPetData;
     
     CLLocationManager *locationManager;
     
@@ -104,7 +102,9 @@
     static NSString *CellIdentifier = @"finpPetCell";
     NearPetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSMutableDictionary *item = findPetData[indexPath.row];
+    // teacher modified the next one line of code
+//    NSMutableDictionary *item = findPetData[indexPath.row];
+    NSMutableDictionary *item = [findPetData[indexPath.row] mutableCopy];
 
     cell.breedLabel.text = item[@"breed"];
     cell.sizeLabel.text = item[@"size"];
@@ -114,19 +114,11 @@
     CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
     
     petDistance = [self getDistance:stopLocation fromLocationStart:currentLocation];
-//    petDistanceString = [NSString stringWithFormat:@"%.2f",petDistance];
-    petDistanceString = @"kkk";
+    petDistanceString = [NSString stringWithFormat:@"%.2f",petDistance];
     
-    petsDict = findPetData[indexPath.row];
+    [item setObject:petDistanceString forKey:@"distance"];
     
-    [item setValue:petDistanceString forKey:@"distance"];
-    
-//    if (petDistance>=1000) {
-//        petDistance = petDistance/1000;
-//        petDistanceString = [NSString stringWithFormat:@"%.2f km",petDistance];
-//    }else{
-//        petDistanceString = [NSString stringWithFormat:@"%.2f m",petDistance];
-//    }
+
    
 //    cell.distanceLabel.text = petDistanceString;
     
@@ -182,6 +174,15 @@
 //            }
 //            
 //            findPetData = [NSMutableArray arrayWithArray:pets];
+            NSMutableArray *distanceArray = [NSMutableArray array];
+            for (int i = 0 ; findPetData.count ; i++) {
+                item = findPetData[i];
+                CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
+                NSString *distance = [NSString stringWithFormat:@"%f",[self getDistance:stopLocation fromLocationStart:currentLocation]];
+                [distanceArray addObject:distance];
+                addDisfindPetData = [NSMutableArray array];
+                
+            }
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -324,6 +325,25 @@
     CLLocationDistance petsDistance=[locationStop distanceFromLocation:myLocation];
     return petsDistance;
 }
+
+-(NSArray *)bubbleSort:(NSMutableArray *)sortArray{
+    long count = sortArray.count;
+    bool swapped = YES;
+    while (swapped) {
+        for (int i = 1 ; i < count ; i++) {
+            float x = [sortArray[i-1] floatValue];
+            float y = [sortArray[i] floatValue];
+            if (x > y) {
+                [sortArray exchangeObjectAtIndex:(i-1) withObjectAtIndex:i];
+                [sortArray exchangeObjectAtIndex:(i-1) withObjectAtIndex:i];
+                swapped = YES;
+            }
+        }
+    }
+    
+    return sortArray;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [self query];
