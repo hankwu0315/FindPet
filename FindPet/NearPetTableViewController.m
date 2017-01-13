@@ -24,8 +24,12 @@
 @implementation NearPetTableViewController
 {
 //    UIImage *cellImage;
-    NSArray *findPetData;
-    NSMutableArray *addDisfindPetData;
+//    NSArray *findPetData;
+//    NSMutableArray *addDisfindPetData;
+    
+    NSMutableArray *findPetData;
+
+    NSMutableArray *sortedPetArray;
     
     CLLocationManager *locationManager;
     
@@ -71,7 +75,7 @@
     //委派予self
     locationManager.delegate = self;
     
-    //傳送startUpdatingLocation訊息，
+    //傳送startUpdatingLocation訊息
     //開始更新訊息
     [locationManager startUpdatingLocation];
 
@@ -103,24 +107,24 @@
     NearPetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // teacher modified the next one line of code
-//    NSMutableDictionary *item = findPetData[indexPath.row];
-    NSMutableDictionary *item = [findPetData[indexPath.row] mutableCopy];
+//    NSDictionary *item = findPetData[indexPath.row];
+//    NSMutableDictionary *item = [findPetData[indexPath.row] mutableCopy];
+    NSDictionary *item = sortedPetArray[indexPath.row];
+
 
     cell.breedLabel.text = item[@"breed"];
     cell.sizeLabel.text = item[@"size"];
     
+    petDistance = [item[@"distance"] doubleValue];
     
-    //發現的動物座標
-    CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
+    if (petDistance >= 1000) {
+        petDistanceString = [NSString stringWithFormat:@"%.2f km",petDistance/1000];
+    }else{
+        petDistanceString = [NSString stringWithFormat:@"%.2f m",petDistance];
+    }
     
-    petDistance = [self getDistance:stopLocation fromLocationStart:currentLocation];
-    petDistanceString = [NSString stringWithFormat:@"%.2f",petDistance];
     
-    [item setObject:petDistanceString forKey:@"distance"];
-    
-
-   
-//    cell.distanceLabel.text = petDistanceString;
+    cell.distanceLabel.text = petDistanceString;
     
     // 將資料庫的圖片位置存入imageUrl
     NSURL *imageUrl = [NSURL URLWithString:item[@"imageUrl"]];
@@ -137,9 +141,7 @@
             }
         });
     });
-    // NSData轉換成UIImage
-//    cellImage = [UIImage imageWithData:imageData];
-    
+
     // Configure the cell...
     
     return cell;
@@ -163,26 +165,43 @@
 //                    NSLog(@"json = %@",content);
             NSError *error = nil;
 //            NSArray *pets = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            findPetData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            findPetData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
 
             NSDictionary *item = findPetData[0];
             NSLog(@"breed=%@,size=%@,location=%@,appearance=%@,UpdateTime=%@,displayTime=%@,imageUrl=%@",item[@"breed"],item[@"size"],item[@"location"],item[@"appearance"],item[@"UpdateTime"],item[@"displayTime"],item[@"imageUrl"]);
             
-//            for (int i = 0; findPetData.count; i++) {
-//                petsDict = pets[i];
-//                [petsDict setObject:petDistanceString forKey:@"distance"];
-//            }
-//            
-//            findPetData = [NSMutableArray arrayWithArray:pets];
             NSMutableArray *distanceArray = [NSMutableArray array];
-            for (int i = 0 ; findPetData.count ; i++) {
+            for (int i = 0 ; i < findPetData.count ; i++) {
                 item = findPetData[i];
                 CLLocation *stopLocation =[[CLLocation alloc] initWithLatitude:[item[@"lat"] doubleValue] longitude:[item[@"lon"] doubleValue]];
                 NSString *distance = [NSString stringWithFormat:@"%f",[self getDistance:stopLocation fromLocationStart:currentLocation]];
                 [distanceArray addObject:distance];
-                addDisfindPetData = [NSMutableArray array];
-                
             }
+
+            //根據距離做排序
+            sortedPetArray =  [[findPetData sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                NSMutableDictionary *item1 = obj1;
+                NSMutableDictionary *item2 = obj2;
+                double dist1;
+                double dist2;
+                
+                if (item1[@"distance"]) {
+                    dist1 = [item1[@"distance"] doubleValue];
+                } else {
+                    CLLocation *item1Location =[[CLLocation alloc] initWithLatitude:[item1[@"lat"] doubleValue] longitude:[item1[@"lon"] doubleValue]];
+                    dist1 = [self getDistance:item1Location fromLocationStart:currentLocation];
+                    item1[@"distance"] = @(dist1);
+                }
+                
+                if (item2[@"distance"]) {
+                    dist2 = [item2[@"distance"] doubleValue];
+                } else {
+                    CLLocation *item2Location =[[CLLocation alloc] initWithLatitude:[item2[@"lat"] doubleValue] longitude:[item2[@"lon"] doubleValue]];
+                    dist2 = [self getDistance:item2Location fromLocationStart:currentLocation];
+                    item2[@"distance"] = @(dist2);
+                }
+                return (dist1 < dist2) ? -1 : 1;
+            }] mutableCopy];
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -325,25 +344,6 @@
     CLLocationDistance petsDistance=[locationStop distanceFromLocation:myLocation];
     return petsDistance;
 }
-
--(NSArray *)bubbleSort:(NSMutableArray *)sortArray{
-    long count = sortArray.count;
-    bool swapped = YES;
-    while (swapped) {
-        for (int i = 1 ; i < count ; i++) {
-            float x = [sortArray[i-1] floatValue];
-            float y = [sortArray[i] floatValue];
-            if (x > y) {
-                [sortArray exchangeObjectAtIndex:(i-1) withObjectAtIndex:i];
-                [sortArray exchangeObjectAtIndex:(i-1) withObjectAtIndex:i];
-                swapped = YES;
-            }
-        }
-    }
-    
-    return sortArray;
-}
-
 
 -(void)viewDidAppear:(BOOL)animated{
     [self query];
