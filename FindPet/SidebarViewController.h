@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SidebarViewController : UITableViewController
+@property (nonatomic, strong) NSArray *menuItems;
 
 @end

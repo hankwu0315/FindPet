@@ -9,4 +9,6 @@ target 'FindPet' do
 
   # Pods for FindPet
  pod 'AFNetworking', '~> 3.0'
+ pod 'MBProgressHUD', '~> 1.0.0'
+
 end

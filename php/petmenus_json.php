@@ -1,7 +1,8 @@
 <?php
 
 //step2. read from mysql
-$connection = mysqli_connect("localhost","root","root","findPet");
+$connection = mysqli_connect("localhost","root","root","Pet");
+//$connection = mysqli_connect("sql6.freemysqlhosting.net","sql6154349","mWU9fZ1uuU","sql6154349");
 mysqli_query($connection,"set names 'utf8'");
 //mysqli_set_charset($connection,"utf8");
 if ( mysqli_connect_errno()){

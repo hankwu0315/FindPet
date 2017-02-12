@@ -43,6 +43,10 @@
     self.mainMapView.delegate = self;
     [self query];
     
+    //消除Back文字
+    UIBarButtonItem *barbtnItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:barbtnItem];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +77,7 @@
 
 -(void)query{
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8888/petmenus_json.php"];
+    NSURL *url = [NSURL URLWithString:@"https://codomo.000webhostapp.com/petmenus_json.php"];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -186,6 +190,7 @@
             
             // Use our own image as annotation view.
             pinView.image = [self thumnailImage];
+            
 //            pinView.image = image;
             
             pinView.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:pinView.image];

@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Pet.h"
 
 
 
 @interface PetViewController : UIViewController
-
-@property (nonatomic) Pet *currentPet;
-
 @property (nonatomic) UIImage *petImage;
 @property (nonatomic,strong) NSString *breedLabelText;
 @property (nonatomic) NSString *sizeLabelText;

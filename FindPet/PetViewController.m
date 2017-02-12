@@ -21,22 +21,31 @@
 
 @implementation PetViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    
     self.breedLabel.text = _breedLabelText;
     self.sizeLabel.text = _sizeLabelText;
-    [self locate];
 //    self.locationLabel.text = _locationLabelText;
     self.locationLabel.numberOfLines = 0; //自適應高度,字多換行
     self.timeLabel.text = _timeLabelText;
     self.appearanceTextView.text = _appearanceTextViewText;
+    self.appearanceTextView.backgroundColor = [UIColor clearColor];
     self.petImageView.image = _petImage;
+    self.locationLabel.text = @"";
+    [self locate];
     
-    
+    //加入背景圖
+    //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back2.png"]];
+    UIImage *backgroundImage = [UIImage imageNamed:@"back2.png"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
 
 }
-
 
 - (void)locate {
     

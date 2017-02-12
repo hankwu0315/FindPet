@@ -1,14 +1,14 @@
 //
-//  FindPetTableViewCell.m
+//  TitleTableViewCell.m
 //  FindPet
 //
-//  Created by user51 on 2016/12/8.
-//  Copyright © 2016年 ChungHan Wu. All rights reserved.
+//  Created by 吳重漢 on 2017/1/17.
+//  Copyright © 2017年 ChungHan Wu. All rights reserved.
 //
 
-#import "FindPetTableViewCell.h"
+#import "TitleTableViewCell.h"
 
-@implementation FindPetTableViewCell
+@implementation TitleTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -28,8 +28,6 @@
 		597E1C491E1E3C2900D23B87 /* petsLocation64.png in Resources */ = {isa = PBXBuildFile; fileRef = 597E1C481E1E3C2900D23B87 /* petsLocation64.png */; };
 		59847D6C1DE7039B009EA7AD /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = 59847D6B1DE7039B009EA7AD /* locate.png */; };
 		59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */; };
-		5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */; };
-		598964AC1E091A5A00EDE6EB /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AB1E091A5A00EDE6EB /* Pet.m */; };
 		598964AF1E09428100EDE6EB /* PetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 598964AE1E09428100EDE6EB /* PetViewController.m */; };
 		59B196CE1E24954000954AEC /* Cats .jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59B196CD1E24954000954AEC /* Cats .jpg */; };
 		59B196F61E24A7A800954AEC /* Cat.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 59B196F51E24A7A800954AEC /* Cat.JPG */; };
@@ -37,18 +35,42 @@
 		59C162A51DE7D64100C4BCA2 /* FoundPetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */; };
 		59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C162A61DE7E75600C4BCA2 /* camera-6.png */; };
 		59F7FEA01DE6FA0B00815420 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F7FE9F1DE6FA0B00815420 /* SidebarViewController.m */; };
+		5C20D8A61E2A897F00F53050 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20D8A51E2A897F00F53050 /* SignUpViewController.m */; };
+		5C20D8A91E2B2B3800F53050 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20D8A81E2B2B3800F53050 /* SignInViewController.m */; };
+		5C20D8AC1E2B592F00F53050 /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20D8AB1E2B592F00F53050 /* MemberViewController.m */; };
+		5C20D8B11E2B9B4E00F53050 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C20D8AE1E2B9B4E00F53050 /* account.png */; };
+		5C20D8B21E2B9B4E00F53050 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C20D8AF1E2B9B4E00F53050 /* account@2x.png */; };
+		5C20D8B31E2B9B4E00F53050 /* account@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C20D8B01E2B9B4E00F53050 /* account@3x.png */; };
+		5C4ACED91E312C170043E95F /* start1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C4ACED81E312C170043E95F /* start1.jpg */; };
+		5CEA68CE1E2E5E83008FBE2D /* Feral-Cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68CD1E2E5E83008FBE2D /* Feral-Cat.jpg */; };
+		5CEA68D01E2E5F13008FBE2D /* cat-iphone-wallpaper-HD10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68CF1E2E5F13008FBE2D /* cat-iphone-wallpaper-HD10.jpg */; };
+		5CEA68D21E2E7307008FBE2D /* cat-iphone-wallpaper-HD1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68D11E2E7307008FBE2D /* cat-iphone-wallpaper-HD1.jpg */; };
+		5CEA68D41E2E8951008FBE2D /* cat_back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68D31E2E8951008FBE2D /* cat_back.jpg */; };
+		5CEA68D61E2F45CF008FBE2D /* IMG_0584.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68D51E2F45CF008FBE2D /* IMG_0584.JPG */; };
+		5CEA68D81E2F4F81008FBE2D /* IMG_0585.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68D71E2F4F81008FBE2D /* IMG_0585.JPG */; };
+		5CEA68E21E2F5868008FBE2D /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEA68E11E2F5868008FBE2D /* back2.png */; };
+		5CF024841E2DBDBF00F6CAC6 /* SidebarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF024831E2DBDBF00F6CAC6 /* SidebarTableViewCell.m */; };
+		5CF024871E2DDF8C00F6CAC6 /* TitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF024861E2DDF8C00F6CAC6 /* TitleTableViewCell.m */; };
+		5CF0248A1E2DDFF400F6CAC6 /* AccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF024891E2DDFF400F6CAC6 /* AccountTableViewCell.m */; };
+		5CF0248D1E2DF68E00F6CAC6 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0248C1E2DF68E00F6CAC6 /* StartViewController.m */; };
+		5CF794CF1E2FC6D6004AC3A5 /* back3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF794CE1E2FC6D6004AC3A5 /* back3.png */; };
+		5CF794D11E2FC812004AC3A5 /* back5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF794D01E2FC812004AC3A5 /* back5.png */; };
+		5CF794D41E2FDEFE004AC3A5 /* MemberPetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF794D31E2FDEFE004AC3A5 /* MemberPetTableViewCell.m */; };
+		5CF794FC1E3087FB004AC3A5 /* pawPrintsCat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF794FB1E3087FB004AC3A5 /* pawPrintsCat.png */; };
+		5CF794FE1E308D30004AC3A5 /* sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CF794FD1E308D30004AC3A5 /* sky.jpg */; };
+		5CF795001E308E7A004AC3A5 /* back6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CF794FF1E308E7A004AC3A5 /* back6.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2AFC169775A1754C9A2587FC /* Pods-FindPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindPet/Pods-FindPet.release.xcconfig"; sourceTree = "<group>"; };
 		33407C1E1E2259FF007ADC74 /* PetPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetPointAnnotation.h; sourceTree = "<group>"; };
 		33407C1F1E2259FF007ADC74 /* PetPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetPointAnnotation.m; sourceTree = "<group>"; };
-		33A4F3391E0EB57B0005DC64 /* LocationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationArrow.png; sourceTree = "<group>"; };
+		33A4F3391E0EB57B0005DC64 /* LocationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocationArrow.png; path = FindPet/LocationArrow.png; sourceTree = "<group>"; };
 		33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewCell.h; sourceTree = "<group>"; };
 		33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewCell.m; sourceTree = "<group>"; };
 		5924D2821E0BF4A200498EBC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5924D2841E0BF4AA00498EBC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		59494DBC1E14BB0600E25D79 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		59494DBC1E14BB0600E25D79 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = FindPet/map.png; sourceTree = "<group>"; };
 		59494DBE1E14D0B400E25D79 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		59494DBF1E14D0B400E25D79 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		595431E41DE4334B0011DB90 /* FindPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,25 +87,53 @@
 		596BE9D11DE47DD50085591C /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
 		596D0C931DF8FFA30095EF3A /* ImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOperation.h; sourceTree = "<group>"; };
 		596D0C941DF8FFA30095EF3A /* ImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOperation.m; sourceTree = "<group>"; };
-		597E1C461E1E08E300D23B87 /* petsLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petsLocation.png; sourceTree = "<group>"; };
-		597E1C481E1E3C2900D23B87 /* petsLocation64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petsLocation64.png; sourceTree = "<group>"; };
-		59847D6B1DE7039B009EA7AD /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate.png; sourceTree = "<group>"; };
+		597E1C461E1E08E300D23B87 /* petsLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = petsLocation.png; path = FindPet/petsLocation.png; sourceTree = "<group>"; };
+		597E1C481E1E3C2900D23B87 /* petsLocation64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = petsLocation64.png; path = FindPet/petsLocation64.png; sourceTree = "<group>"; };
+		59847D6B1DE7039B009EA7AD /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locate.png; path = FindPet/locate.png; sourceTree = "<group>"; };
 		59847D6D1DE70A40009EA7AD /* NearPetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetTableViewController.h; sourceTree = "<group>"; };
 		59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetTableViewController.m; sourceTree = "<group>"; };
-		5987C9091DF987CA00AD839C /* FindPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPetTableViewCell.h; sourceTree = "<group>"; };
-		5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPetTableViewCell.m; sourceTree = "<group>"; };
-		598964AA1E091A5A00EDE6EB /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
-		598964AB1E091A5A00EDE6EB /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 		598964AD1E09428100EDE6EB /* PetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetViewController.h; sourceTree = "<group>"; };
 		598964AE1E09428100EDE6EB /* PetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetViewController.m; sourceTree = "<group>"; };
-		59B196CD1E24954000954AEC /* Cats .jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cats .jpg"; sourceTree = "<group>"; };
-		59B196F51E24A7A800954AEC /* Cat.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cat.JPG; sourceTree = "<group>"; };
-		59C162A11DE7D5CC00C4BCA2 /* found-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "found-icon.png"; sourceTree = "<group>"; };
+		59B196CD1E24954000954AEC /* Cats .jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Cats .jpg"; path = "FindPet/Cats .jpg"; sourceTree = "<group>"; };
+		59B196F51E24A7A800954AEC /* Cat.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Cat.JPG; path = FindPet/Cat.JPG; sourceTree = "<group>"; };
+		59C162A11DE7D5CC00C4BCA2 /* found-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "found-icon.png"; path = "FindPet/found-icon.png"; sourceTree = "<group>"; };
 		59C162A31DE7D64100C4BCA2 /* FoundPetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPetViewController.h; sourceTree = "<group>"; };
 		59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPetViewController.m; sourceTree = "<group>"; };
-		59C162A61DE7E75600C4BCA2 /* camera-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-6.png"; sourceTree = "<group>"; };
+		59C162A61DE7E75600C4BCA2 /* camera-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera-6.png"; path = "FindPet/camera-6.png"; sourceTree = "<group>"; };
 		59F7FE9E1DE6FA0B00815420 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		59F7FE9F1DE6FA0B00815420 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		5C20D8A41E2A897F00F53050 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		5C20D8A51E2A897F00F53050 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		5C20D8A71E2B2B3800F53050 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		5C20D8A81E2B2B3800F53050 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		5C20D8AA1E2B592F00F53050 /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
+		5C20D8AB1E2B592F00F53050 /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
+		5C20D8AE1E2B9B4E00F53050 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		5C20D8AF1E2B9B4E00F53050 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
+		5C20D8B01E2B9B4E00F53050 /* account@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@3x.png"; sourceTree = "<group>"; };
+		5C4ACED81E312C170043E95F /* start1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start1.jpg; sourceTree = "<group>"; };
+		5CEA68CD1E2E5E83008FBE2D /* Feral-Cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Feral-Cat.jpg"; sourceTree = "<group>"; };
+		5CEA68CF1E2E5F13008FBE2D /* cat-iphone-wallpaper-HD10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat-iphone-wallpaper-HD10.jpg"; sourceTree = "<group>"; };
+		5CEA68D11E2E7307008FBE2D /* cat-iphone-wallpaper-HD1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat-iphone-wallpaper-HD1.jpg"; sourceTree = "<group>"; };
+		5CEA68D31E2E8951008FBE2D /* cat_back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat_back.jpg; sourceTree = "<group>"; };
+		5CEA68D51E2F45CF008FBE2D /* IMG_0584.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_0584.JPG; path = FindPet/IMG_0584.JPG; sourceTree = "<group>"; };
+		5CEA68D71E2F4F81008FBE2D /* IMG_0585.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0585.JPG; sourceTree = "<group>"; };
+		5CEA68E11E2F5868008FBE2D /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = "<group>"; };
+		5CF024821E2DBDBF00F6CAC6 /* SidebarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewCell.h; sourceTree = "<group>"; };
+		5CF024831E2DBDBF00F6CAC6 /* SidebarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewCell.m; sourceTree = "<group>"; };
+		5CF024851E2DDF8C00F6CAC6 /* TitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTableViewCell.h; sourceTree = "<group>"; };
+		5CF024861E2DDF8C00F6CAC6 /* TitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewCell.m; sourceTree = "<group>"; };
+		5CF024881E2DDFF400F6CAC6 /* AccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewCell.h; sourceTree = "<group>"; };
+		5CF024891E2DDFF400F6CAC6 /* AccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewCell.m; sourceTree = "<group>"; };
+		5CF0248B1E2DF68E00F6CAC6 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		5CF0248C1E2DF68E00F6CAC6 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		5CF794CE1E2FC6D6004AC3A5 /* back3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back3.png; sourceTree = "<group>"; };
+		5CF794D01E2FC812004AC3A5 /* back5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back5.png; sourceTree = "<group>"; };
+		5CF794D21E2FDEFE004AC3A5 /* MemberPetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberPetTableViewCell.h; sourceTree = "<group>"; };
+		5CF794D31E2FDEFE004AC3A5 /* MemberPetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberPetTableViewCell.m; sourceTree = "<group>"; };
+		5CF794FB1E3087FB004AC3A5 /* pawPrintsCat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pawPrintsCat.png; sourceTree = "<group>"; };
+		5CF794FD1E308D30004AC3A5 /* sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sky.jpg; sourceTree = "<group>"; };
+		5CF794FF1E308E7A004AC3A5 /* back6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back6.jpg; sourceTree = "<group>"; };
 		B7004E3A2092C7CCDB586C7F /* libPods-FindPet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FindPet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA91263369CBD93F6421FA93 /* Pods-FindPet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindPet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindPet/Pods-FindPet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +174,7 @@
 		595431DB1DE4334B0011DB90 = {
 			isa = PBXGroup;
 			children = (
+				5C20D8AD1E2B9B1900F53050 /* image */,
 				595431E61DE4334B0011DB90 /* FindPet */,
 				595431E51DE4334B0011DB90 /* Products */,
 				1886AEE5727E4CFF2FBD8B71 /* Pods */,
@@ -142,15 +193,6 @@
 		595431E61DE4334B0011DB90 /* FindPet */ = {
 			isa = PBXGroup;
 			children = (
-				59B196CD1E24954000954AEC /* Cats .jpg */,
-				597E1C481E1E3C2900D23B87 /* petsLocation64.png */,
-				597E1C461E1E08E300D23B87 /* petsLocation.png */,
-				33A4F3391E0EB57B0005DC64 /* LocationArrow.png */,
-				59C162A61DE7E75600C4BCA2 /* camera-6.png */,
-				59847D6B1DE7039B009EA7AD /* locate.png */,
-				59C162A11DE7D5CC00C4BCA2 /* found-icon.png */,
-				59494DBC1E14BB0600E25D79 /* map.png */,
-				59B196F51E24A7A800954AEC /* Cat.JPG */,
 				595431EA1DE4334B0011DB90 /* AppDelegate.h */,
 				595431EB1DE4334B0011DB90 /* AppDelegate.m */,
 				595431F01DE4334B0011DB90 /* Main.storyboard */,
@@ -163,21 +205,33 @@
 				59847D6E1DE70A40009EA7AD /* NearPetTableViewController.m */,
 				59C162A31DE7D64100C4BCA2 /* FoundPetViewController.h */,
 				59C162A41DE7D64100C4BCA2 /* FoundPetViewController.m */,
-				595431E71DE4334B0011DB90 /* Supporting Files */,
 				596D0C931DF8FFA30095EF3A /* ImageOperation.h */,
 				596D0C941DF8FFA30095EF3A /* ImageOperation.m */,
-				5987C9091DF987CA00AD839C /* FindPetTableViewCell.h */,
-				5987C90A1DF987CA00AD839C /* FindPetTableViewCell.m */,
 				33AC70EB1E08179A000889A5 /* NearPetTableViewCell.h */,
 				33AC70EC1E08179A000889A5 /* NearPetTableViewCell.m */,
-				598964AA1E091A5A00EDE6EB /* Pet.h */,
-				598964AB1E091A5A00EDE6EB /* Pet.m */,
 				598964AD1E09428100EDE6EB /* PetViewController.h */,
 				598964AE1E09428100EDE6EB /* PetViewController.m */,
 				59494DBE1E14D0B400E25D79 /* MapViewController.h */,
 				59494DBF1E14D0B400E25D79 /* MapViewController.m */,
 				33407C1E1E2259FF007ADC74 /* PetPointAnnotation.h */,
 				33407C1F1E2259FF007ADC74 /* PetPointAnnotation.m */,
+				5C20D8A41E2A897F00F53050 /* SignUpViewController.h */,
+				5C20D8A51E2A897F00F53050 /* SignUpViewController.m */,
+				5C20D8A71E2B2B3800F53050 /* SignInViewController.h */,
+				5C20D8A81E2B2B3800F53050 /* SignInViewController.m */,
+				5C20D8AA1E2B592F00F53050 /* MemberViewController.h */,
+				5C20D8AB1E2B592F00F53050 /* MemberViewController.m */,
+				595431E71DE4334B0011DB90 /* Supporting Files */,
+				5CF024821E2DBDBF00F6CAC6 /* SidebarTableViewCell.h */,
+				5CF024831E2DBDBF00F6CAC6 /* SidebarTableViewCell.m */,
+				5CF024851E2DDF8C00F6CAC6 /* TitleTableViewCell.h */,
+				5CF024861E2DDF8C00F6CAC6 /* TitleTableViewCell.m */,
+				5CF024881E2DDFF400F6CAC6 /* AccountTableViewCell.h */,
+				5CF024891E2DDFF400F6CAC6 /* AccountTableViewCell.m */,
+				5CF0248B1E2DF68E00F6CAC6 /* StartViewController.h */,
+				5CF0248C1E2DF68E00F6CAC6 /* StartViewController.m */,
+				5CF794D21E2FDEFE004AC3A5 /* MemberPetTableViewCell.h */,
+				5CF794D31E2FDEFE004AC3A5 /* MemberPetTableViewCell.m */,
 			);
 			path = FindPet;
 			sourceTree = "<group>";
@@ -202,6 +256,38 @@
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
+		5C20D8AD1E2B9B1900F53050 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				5C4ACED81E312C170043E95F /* start1.jpg */,
+				5CF794FF1E308E7A004AC3A5 /* back6.jpg */,
+				5CF794FD1E308D30004AC3A5 /* sky.jpg */,
+				5CF794FB1E3087FB004AC3A5 /* pawPrintsCat.png */,
+				5CF794D01E2FC812004AC3A5 /* back5.png */,
+				5CF794CE1E2FC6D6004AC3A5 /* back3.png */,
+				5CEA68E11E2F5868008FBE2D /* back2.png */,
+				5CEA68D71E2F4F81008FBE2D /* IMG_0585.JPG */,
+				5CEA68D51E2F45CF008FBE2D /* IMG_0584.JPG */,
+				5CEA68D31E2E8951008FBE2D /* cat_back.jpg */,
+				5CEA68D11E2E7307008FBE2D /* cat-iphone-wallpaper-HD1.jpg */,
+				5CEA68CF1E2E5F13008FBE2D /* cat-iphone-wallpaper-HD10.jpg */,
+				5CEA68CD1E2E5E83008FBE2D /* Feral-Cat.jpg */,
+				5C20D8AE1E2B9B4E00F53050 /* account.png */,
+				5C20D8AF1E2B9B4E00F53050 /* account@2x.png */,
+				5C20D8B01E2B9B4E00F53050 /* account@3x.png */,
+				59B196CD1E24954000954AEC /* Cats .jpg */,
+				597E1C481E1E3C2900D23B87 /* petsLocation64.png */,
+				597E1C461E1E08E300D23B87 /* petsLocation.png */,
+				33A4F3391E0EB57B0005DC64 /* LocationArrow.png */,
+				59C162A61DE7E75600C4BCA2 /* camera-6.png */,
+				59847D6B1DE7039B009EA7AD /* locate.png */,
+				59C162A11DE7D5CC00C4BCA2 /* found-icon.png */,
+				59494DBC1E14BB0600E25D79 /* map.png */,
+				59B196F51E24A7A800954AEC /* Cat.JPG */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,12 +295,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 595431FB1DE4334B0011DB90 /* Build configuration list for PBXNativeTarget "FindPet" */;
 			buildPhases = (
-				17F27F051299B44E429E8C14 /* 📦 Check Pods Manifest.lock */,
+				17F27F051299B44E429E8C14 /* [CP] Check Pods Manifest.lock */,
 				595431E01DE4334B0011DB90 /* Sources */,
 				595431E11DE4334B0011DB90 /* Frameworks */,
 				595431E21DE4334B0011DB90 /* Resources */,
-				DF96A63F201C71AECC034FA3 /* 📦 Embed Pods Frameworks */,
-				0DD8BD95CB477464FD6DA192 /* 📦 Copy Pods Resources */,
+				DF96A63F201C71AECC034FA3 /* [CP] Embed Pods Frameworks */,
+				0DD8BD95CB477464FD6DA192 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,7 +322,7 @@
 				TargetAttributes = {
 					595431E31DE4334B0011DB90 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3ZV7L885XN;
+						DevelopmentTeam = J34352NHX3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -265,33 +351,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				597E1C491E1E3C2900D23B87 /* petsLocation64.png in Resources */,
+				5C20D8B31E2B9B4E00F53050 /* account@3x.png in Resources */,
+				5C20D8B11E2B9B4E00F53050 /* account.png in Resources */,
 				595431F71DE4334B0011DB90 /* LaunchScreen.storyboard in Resources */,
 				596BE9D31DE47DD50085591C /* reveal-icon@2x.png in Resources */,
+				5CF794FE1E308D30004AC3A5 /* sky.jpg in Resources */,
+				5CEA68CE1E2E5E83008FBE2D /* Feral-Cat.jpg in Resources */,
+				5CEA68D21E2E7307008FBE2D /* cat-iphone-wallpaper-HD1.jpg in Resources */,
 				59B196CE1E24954000954AEC /* Cats .jpg in Resources */,
+				5CF794D11E2FC812004AC3A5 /* back5.png in Resources */,
 				595431F41DE4334B0011DB90 /* Assets.xcassets in Resources */,
 				597E1C471E1E08E300D23B87 /* petsLocation.png in Resources */,
 				59B196F61E24A7A800954AEC /* Cat.JPG in Resources */,
+				5CEA68D81E2F4F81008FBE2D /* IMG_0585.JPG in Resources */,
+				5CF794CF1E2FC6D6004AC3A5 /* back3.png in Resources */,
+				5C20D8B21E2B9B4E00F53050 /* account@2x.png in Resources */,
+				5CEA68D01E2E5F13008FBE2D /* cat-iphone-wallpaper-HD10.jpg in Resources */,
 				59C162A71DE7E75600C4BCA2 /* camera-6.png in Resources */,
 				59494DBD1E14BB0600E25D79 /* map.png in Resources */,
 				595431F21DE4334B0011DB90 /* Main.storyboard in Resources */,
 				33A4F33A1E0EB57B0005DC64 /* LocationArrow.png in Resources */,
+				5CEA68E21E2F5868008FBE2D /* back2.png in Resources */,
+				5CF794FC1E3087FB004AC3A5 /* pawPrintsCat.png in Resources */,
+				5CEA68D41E2E8951008FBE2D /* cat_back.jpg in Resources */,
+				5C4ACED91E312C170043E95F /* start1.jpg in Resources */,
 				596BE9D21DE47DD50085591C /* reveal-icon.png in Resources */,
 				59C162A21DE7D5CC00C4BCA2 /* found-icon.png in Resources */,
+				5CEA68D61E2F45CF008FBE2D /* IMG_0584.JPG in Resources */,
 				59847D6C1DE7039B009EA7AD /* locate.png in Resources */,
+				5CF795001E308E7A004AC3A5 /* back6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0DD8BD95CB477464FD6DA192 /* 📦 Copy Pods Resources */ = {
+		0DD8BD95CB477464FD6DA192 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,29 +401,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindPet/Pods-FindPet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		17F27F051299B44E429E8C14 /* 📦 Check Pods Manifest.lock */ = {
+		17F27F051299B44E429E8C14 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DF96A63F201C71AECC034FA3 /* 📦 Embed Pods Frameworks */ = {
+		DF96A63F201C71AECC034FA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +438,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF794D41E2FDEFE004AC3A5 /* MemberPetTableViewCell.m in Sources */,
+				5CF024871E2DDF8C00F6CAC6 /* TitleTableViewCell.m in Sources */,
 				596D0C951DF8FFA30095EF3A /* ImageOperation.m in Sources */,
 				595431EC1DE4334B0011DB90 /* AppDelegate.m in Sources */,
 				59847D6F1DE70A40009EA7AD /* NearPetTableViewController.m in Sources */,
@@ -344,11 +448,15 @@
 				33AC70ED1E08179A000889A5 /* NearPetTableViewCell.m in Sources */,
 				595432011DE433790011DB90 /* SWRevealViewController.m in Sources */,
 				59F7FEA01DE6FA0B00815420 /* SidebarViewController.m in Sources */,
-				5987C90B1DF987CA00AD839C /* FindPetTableViewCell.m in Sources */,
+				5C20D8AC1E2B592F00F53050 /* MemberViewController.m in Sources */,
 				33407C201E2259FF007ADC74 /* PetPointAnnotation.m in Sources */,
+				5C20D8A91E2B2B3800F53050 /* SignInViewController.m in Sources */,
 				59C162A51DE7D64100C4BCA2 /* FoundPetViewController.m in Sources */,
 				598964AF1E09428100EDE6EB /* PetViewController.m in Sources */,
-				598964AC1E091A5A00EDE6EB /* Pet.m in Sources */,
+				5CF024841E2DBDBF00F6CAC6 /* SidebarTableViewCell.m in Sources */,
+				5C20D8A61E2A897F00F53050 /* SignUpViewController.m in Sources */,
+				5CF0248D1E2DF68E00F6CAC6 /* StartViewController.m in Sources */,
+				5CF0248A1E2DDFF400F6CAC6 /* AccountTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,10 +575,11 @@
 			baseConfigurationReference = BA91263369CBD93F6421FA93 /* Pods-FindPet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3ZV7L885XN;
+				DEVELOPMENT_TEAM = J34352NHX3;
 				INFOPLIST_FILE = FindPet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.iii.FindPet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FindPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -480,10 +589,11 @@
 			baseConfigurationReference = 2AFC169775A1754C9A2587FC /* Pods-FindPet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3ZV7L885XN;
+				DEVELOPMENT_TEAM = J34352NHX3;
 				INFOPLIST_FILE = FindPet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.iii.FindPet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FindPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

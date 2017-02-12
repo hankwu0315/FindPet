@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
+#import "StartViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    NSUserDefaults *userDefaults;
+}
+
 
 @end
 
@@ -18,6 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    self.window.tintColor = [UIColor blackColor];
+    
+
     return YES;
 }
 
@@ -46,6 +53,17 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    if (![[[userDefaults dictionaryRepresentation] allKeys] containsObject:@"userID"]) {
+        
+        StartViewController *startViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"startNC"];
+        [self.window.rootViewController presentViewController:startViewController animated:YES completion:nil];
+    }
 }
 
 

@@ -184,6 +184,8 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
 
 @interface SWRevealViewController : UIViewController
 
+@property (nonatomic) NSString *account;
+
 /* Basic API */
 
 // Object instance init and rear view setting

@@ -42,15 +42,20 @@
 
 @end
 
-@implementation FoundPetViewController
+@implementation FoundPetViewController{
+    NSUserDefaults *userDefaults;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    userDefaults = [NSUserDefaults standardUserDefaults];
     //    [self.Camera setImage:[UIImage imageNamed:@"camera-6.png"] forState:UIControlStateNormal];
-    self.title = @"發現遺失毛小孩";
-    
+
+    //Title顏色
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.translucent = NO;
     
     //leftSideBarButton
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -69,8 +74,10 @@
     
     
     self.breedTextField.placeholder = @"請輸入品種(ex.米克斯..)";
+    self.breedTextField.delegate = self;
     
     self.locationTextField.placeholder = @"請輸入發現地址";
+    self.locationTextField.delegate = self;
     
     //建立CLLocationManger，
     //並存於locationManager實體變數中
@@ -121,6 +128,7 @@
     self.appearTextView.text = @"請輸入毛孩子的外觀或其餘特徵";
     self.appearTextView.textColor = [UIColor grayColor];
     self.appearTextView.delegate = self;
+    self.appearTextView.backgroundColor = [UIColor clearColor];
     
     /* 測試picker選取資料
     NSDateFormatter *df = [NSDateFormatter new];
@@ -131,6 +139,30 @@
     [df setDateFormat:UpdateTimeString];
     NSString *Test_df = [NSString stringWithFormat:@"%@",[df stringFromDate:datePicker.date]];
     NSLog(@"%@",Test_df);*/
+    
+    //sideBar顏色
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:237/255.0 green:209/255.0 blue:110/255.0 alpha:1];
+    
+    //消除Back文字
+    UIBarButtonItem *barbtnItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:barbtnItem];
+    
+    //Bar顏色
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:71/255.0 green:163/255.0 blue:1 alpha:1];
+    
+    //Title顏色
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    //加入背景圖
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back2.png"]];
+    UIImage *backgroundImage = [UIImage imageNamed:@"back2.png"];
+    UIImageView *backgroundImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    backgroundImageView.image=backgroundImage;
+    [self.view insertSubview:backgroundImageView atIndex:0];
+
+    
     
 }
 
@@ -260,8 +292,8 @@
 //上傳圖片方法
 - (void) imageUpload:(UIImage *) image{
     
-    NSData *imageData = UIImageJPEGRepresentation(image, .5);
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8888/petImage_upload.php"];
+    NSData *imageData = UIImageJPEGRepresentation(image, .1);
+    NSURL *url = [NSURL URLWithString:@"https://codomo.000webhostapp.com/petImage_upload.php"];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -274,7 +306,7 @@
     NSData *body = [self bodyOfFile:imageName imageData:imageData request:request];
     
     // 設定圖片網址
-    imageUrl = [NSString stringWithFormat:@"http://localhost:8888/uploads/%@",imageName];
+    imageUrl = [NSString stringWithFormat:@"https://codomo.000webhostapp.com/uploads/%@",imageName];
     
     NSURLSessionTask *task = [session uploadTaskWithRequest:request fromData:body completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -310,13 +342,16 @@
     NSString *appearance = self.appearTextView.text;
     NSString *displayTime = self.timeTextField.text;
     
+    if ([self.appearTextView.text isEqualToString:@"請輸入毛孩子的外觀或其餘特徵"]) {
+        appearance = @"";
+    }
     // 設定時間,UpdateTimeString儲存統一時間格式
     NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
     myDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     NSString *UpdateTimeString = [NSString stringWithFormat:@"%@",[myDateFormatter stringFromDate: datePicker.date]];
     NSLog(@"%@",UpdateTimeString);
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8888/insertPetData.php"];
+    NSURL *url = [NSURL URLWithString:@"https://codomo.000webhostapp.com/insertPetData.php"];
     
     NSURLSession *session = [NSURLSession sharedSession];
     //POST
@@ -325,8 +360,8 @@
     
     
     
-    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&lat=%@&lon=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@",
-                        breed,sizeString,location,lat,lon,appearance,UpdateTimeString,displayTime,imageUrl];
+    NSString *params = [NSString stringWithFormat:@"breed=%@&size=%@&location=%@&lat=%@&lon=%@&appearance=%@&UpdateTime=%@&displayTime=%@&imageUrl=%@&UserName=%@",
+                        breed,sizeString,location,lat,lon,appearance,UpdateTimeString,displayTime,imageUrl,[userDefaults objectForKey:@"userID"]];
     NSData *body = [params dataUsingEncoding:NSUTF8StringEncoding];
     
     [request setHTTPBody:body];
@@ -404,6 +439,27 @@
         
         
     }];
+}
+
+#pragma mark UITextFieldDelegate
+//收回鍵盤
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+////收回鍵盤
+//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+//    if ([text isEqualToString:@"\n"]){ //判断输入的字是否是return，即按下return
+//        return NO;
+//        //NO，就代表return失效，即頁面上按下return，不會出現換行，如果為YES，則會輸入換行
+//    }
+//    return YES;
+//}
+
+//點擊空白處可收回鍵盤
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 /*
